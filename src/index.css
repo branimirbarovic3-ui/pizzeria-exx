@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #FAF8F5; /* ivory */
+  --primary: #0D0D12;    /* obsidian */
+  --accent: #C9A84C;     /* champagne */
+  --text: #2A2A35;       /* slate */
+}
+
+@layer base {
+  body {
+    @apply bg-ivory text-slate font-sans selection:bg-champagne selection:text-obsidian;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+}
+
+/* Custom transitions per GEMINI.md */
+.magnetic {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic:hover {
+  transform: scale(1.03);
+}
+
+.lift-hover {
+  transition: transform 0.3s ease;
+}
+
+.lift-hover:hover {
+  transform: translateY(-1px);
+}
+
+/* Card glassmorphism or preset style */
+.glass-card {
+  @apply bg-ivory/80 backdrop-blur-xl border border-obsidian/10 rounded-2rem;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-25%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}

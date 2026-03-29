@@ -1,0 +1,10 @@
+node_modules
+.git
+.vercel
+README.md
+eslint.config.js
+scripts
+tests
+docs
+temp
+*.log
