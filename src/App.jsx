@@ -300,8 +300,7 @@ const LanguageContext = React.createContext();
 const LanguageProvider = ({ children }) => {
   const [lang, setLang] = useState(() => {
     const saved = localStorage.getItem('pizzeria_ex_lang');
-    if (saved) return saved;
-    return navigator.language.startsWith('hr') ? 'hr' : 'en';
+    return saved || 'hr';
   });
 
   const t = (path) => {
