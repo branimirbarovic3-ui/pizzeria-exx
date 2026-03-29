@@ -1199,67 +1199,7 @@ const HomePage = () => (
 );
 
 const MenuPage = () => {
-  const { t } = React.useContext(LanguageContext);
-  const [activeCategory, setActiveCategory] = useState(0);
-
-  const menuData = [
-    {
-      icon: <Star className="w-6 h-6" />,
-      category: t('menuPage.cat0'),
-      items: [
-        { name: t('menuPage.items.sp1_n'), desc: t('menuPage.items.sp1_d'), price: "19,50 €", badge: "Premium" },
-        { name: t('menuPage.items.sp2_n'), desc: t('menuPage.items.sp2_d'), price: "17,50 €" },
-        { name: t('menuPage.items.sp3_n'), desc: t('menuPage.items.sp3_d'), price: "18,20 €", badge: "Special Choice" },
-        { name: t('menuPage.items.sp4_n'), desc: t('menuPage.items.sp4_d'), price: "13,20 €" },
-        { name: t('menuPage.items.sp5_n'), desc: t('menuPage.items.sp5_d'), price: "15,20 €", badge: "Signature" }
-      ]
-    },
-    {
-      icon: <Pizza className="w-6 h-6" />,
-      category: t('menuPage.cat1'),
-      items: [
-        { name: t('menuPage.items.m1_n'), desc: t('menuPage.items.m1_d'), price: "12,30 €" },
-        { name: t('menuPage.items.m2_n'), desc: t('menuPage.items.m2_d'), price: "11,30 €" },
-        { name: t('menuPage.items.m3_n'), desc: t('menuPage.items.m3_d'), price: "11,40 €", badge: "Signature" },
-        { name: t('menuPage.items.m4_n'), desc: t('menuPage.items.m4_d'), price: "12,50 €", badge: "Premium" },
-        { name: t('menuPage.items.m5_n'), desc: t('menuPage.items.m5_d'), price: "11,30 €" }
-      ]
-    },
-    {
-      icon: <Flame className="w-6 h-6" />,
-      category: t('menuPage.cat2'),
-      items: [
-        { name: t('menuPage.items.g1_n'), desc: t('menuPage.items.g1_d'), price: "13,70 €" },
-        { name: t('menuPage.items.g2_n'), desc: t('menuPage.items.g2_d'), price: "14,70 €" },
-        { name: t('menuPage.items.g3_n'), desc: t('menuPage.items.g3_d'), price: "15,10 €", badge: t('menuPage.items.badge_pop') },
-        { name: t('menuPage.items.g4_n'), desc: t('menuPage.items.g4_d'), price: "15,30 €" },
-        { name: t('menuPage.items.g5_n'), desc: t('menuPage.items.g5_d'), price: "34,80 €", badge: t('menuPage.items.badge_share') }
-      ]
-    },
-    {
-      icon: <Coffee className="w-6 h-6" />,
-      category: t('menuPage.cat3'),
-      items: [
-        { name: t('menuPage.items.b1_n'), desc: t('menuPage.items.b1_d'), price: "6,90 €" },
-        { name: t('menuPage.items.b2_n'), desc: t('menuPage.items.b2_d'), price: "7,50 €" },
-        { name: t('menuPage.items.b5_n'), desc: t('menuPage.items.b5_d'), price: "7,30 €", badge: "New" },
-        { name: t('menuPage.items.b3_n'), desc: t('menuPage.items.b3_d'), price: "7,50 €" },
-        { name: t('menuPage.items.b4_n'), desc: t('menuPage.items.b4_d'), price: "7,30 €" }
-      ]
-    },
-    {
-      icon: <Utensils className="w-6 h-6" />,
-      category: t('menuPage.cat4'),
-      items: [
-        { name: t('menuPage.items.s1_n'), desc: t('menuPage.items.s1_d'), price: "16,70 €" },
-        { name: t('menuPage.items.s2_n'), desc: t('menuPage.items.s2_d'), price: "16,70 €" },
-        { name: t('menuPage.items.s3_n'), desc: t('menuPage.items.s3_d'), price: "18,20 €", badge: "Premium" },
-        { name: t('menuPage.items.s4_n'), desc: t('menuPage.items.s4_d'), price: "15,20 €" },
-        { name: t('menuPage.items.s5_n'), desc: t('menuPage.items.s5_d'), price: "14,40 €" },
-        { name: t('menuPage.items.s6_n'), desc: t('menuPage.items.s6_d'), price: "16,10 €", badge: "Extra" }
-      ]
-    }
-  ];
+  const { t, lang } = React.useContext(LanguageContext);
 
   return (
     <main className="pt-40 pb-24 bg-black min-h-screen text-ivory relative selection:bg-champagne selection:text-black">
