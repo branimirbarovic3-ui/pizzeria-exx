@@ -1083,8 +1083,8 @@ const ContactSection = () => {
 const MarqueeSection = () => {
   const { lang } = React.useContext(LanguageContext);
   const words = lang === 'hr'
-    ? ["LOKALNI PROIZVODI", "30+ GODINA ISKUSTVA", "4.8 ZVJEZDICE"]
-    : ["LOCAL PRODUCTS", "30+ YEARS OF EXPERIENCE", "4.8 STARS"];
+    ? ["LOKALNI PROIZVODI", "VIŠE OD 30 GODINA ISKUSTVA", "OCJENA 4.5 NA GOOGLE-U"]
+    : ["LOCAL PRODUCTS", "OVER 30 YEARS OF EXPERIENCE", "4.5 GOOGLE RATING"];
 
   return (
     <div className="bg-champagne py-5 overflow-hidden flex whitespace-nowrap border-y border-obsidian/10">
@@ -1113,8 +1113,8 @@ const BigStatement = () => {
       </div>
       <h2 className="max-w-6xl mx-auto text-5xl md:text-7xl lg:text-[6rem] font-serif italic text-ivory leading-[0.9] tracking-tight">
         {lang === 'hr'
-          ? <>Otkrijte zašto su naši gosti oduševljeni već više od <span className="text-champagne font-black not-italic font-sans tracking-tighter">30+</span> godina.</>
-          : <>Discover why our guests have been delighted for over <span className="text-champagne font-black not-italic font-sans tracking-tighter">30+</span> years.</>}
+          ? <>Otkrijte zašto su naši gosti oduševljeni već više od <span className="text-champagne font-black not-italic font-sans tracking-tighter">30</span> godina.</>
+          : <>Discover why our guests have been delighted for over <span className="text-champagne font-black not-italic font-sans tracking-tighter">30</span> years.</>}
       </h2>
     </section>
   );
@@ -1265,15 +1265,9 @@ const MenuPage = () => {
     <main className="pt-40 pb-24 bg-black min-h-screen text-ivory relative selection:bg-champagne selection:text-black">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-20 md:mb-32">
-          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter mb-8 text-white">
+          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter text-white">
             {t('menuPage.title1')} <span className="text-champagne">{t('menuPage.title2')}</span>
           </h1>
-          <p className="max-w-xl mx-auto text-ivory/90 font-sans font-bold text-[11px] md:text-base uppercase tracking-widest leading-loose px-4 mb-6">
-            {t('menuPage.desc')}
-          </p>
-          <p className="text-champagne/60 font-mono text-[9px] md:text-xs uppercase tracking-[0.3em] font-medium">
-            {t('menuPage.pdfNote')}
-          </p>
         </div>
 
         {/* Full PDF Menu Embed */}
@@ -1313,6 +1307,12 @@ const MenuPage = () => {
               title="Pizzeria EX Cjelokupni Jelovnik"
             />
           </div>
+        </div>
+
+        <div className="text-center mb-16 px-4">
+          <p className="max-w-xl mx-auto text-ivory/90 font-sans font-bold text-[11px] md:text-lg uppercase tracking-widest leading-loose mb-6">
+            {t('menuPage.desc')}
+          </p>
         </div>
 
         {/* Interactive Menu Highlights Header */}
