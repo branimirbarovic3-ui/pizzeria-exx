@@ -1276,8 +1276,47 @@ const MenuPage = () => {
           </p>
         </div>
 
+        {/* Full PDF Menu Embed */}
+        <div className="pt-24 border-t border-white/10 mb-24 md:mb-32">
+          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-8 text-center md:text-left">
+            <div className="max-w-xl">
+              <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
+                <FileText className="w-6 h-6 text-champagne" />
+                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white">
+                  {t('menuPage.full')}
+                </h2>
+              </div>
+              <p className="text-ivory/60 font-mono text-xs md:text-sm tracking-widest leading-relaxed uppercase">
+                {t('menuPage.fullDesc')}
+              </p>
+            </div>
+
+            <a
+              href="/assets/JELOVNIK.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-5 bg-champagne text-black rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 transition-all duration-500 shadow-2xl shadow-champagne/20"
+            >
+              <Download className="w-5 h-5 animate-bounce-slow" />
+              {t('menuPage.btn')}
+            </a>
+          </div>
+
+          <div className="w-full bg-white/5 border border-white/10 p-2 md:p-6 rounded-[2rem] shadow-2xl relative overflow-hidden h-[80vh] min-h-[600px]">
+            <div className="absolute inset-0 -z-10 flex flex-col items-center justify-center text-white/20 font-mono tracking-widest">
+              <FileText className="w-12 h-12 mb-4 animate-pulse text-white/30" />
+              <p>{t('menuPage.loading')}</p>
+            </div>
+            <iframe
+              src="/assets/JELOVNIK.pdf#toolbar=0&view=FitW"
+              className="w-full h-full rounded-xl border-0 bg-transparent grayscale opacity-90 invert-[0.05]"
+              title="Pizzeria EX Cjelokupni Jelovnik"
+            />
+          </div>
+        </div>
+
         {/* Interactive Menu Highlights Header */}
-        <div className="mb-6 md:mb-10 flex items-center gap-3">
+        <div className="mb-6 md:mb-10 flex items-center gap-3 border-t border-white/10 pt-24">
           <Star className="w-5 h-5 text-champagne fill-champagne" />
           <h2 className="text-xl md:text-2xl font-black uppercase tracking-widest text-white/90">{t('menuPage.chef')}</h2>
         </div>
@@ -1345,44 +1384,6 @@ const MenuPage = () => {
           </div>
         </div>
 
-        {/* Full PDF Menu Embed */}
-        <div className="pt-24 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-8 text-center md:text-left">
-            <div className="max-w-xl">
-              <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
-                <FileText className="w-6 h-6 text-champagne" />
-                <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white">
-                  {t('menuPage.full')}
-                </h2>
-              </div>
-              <p className="text-ivory/60 font-mono text-xs md:text-sm tracking-widest leading-relaxed uppercase">
-                {t('menuPage.fullDesc')}
-              </p>
-            </div>
-
-            <a
-              href="/assets/JELOVNIK.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-5 bg-champagne text-black rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 transition-all duration-500 shadow-2xl shadow-champagne/20"
-            >
-              <Download className="w-5 h-5 animate-bounce-slow" />
-              {t('menuPage.btn')}
-            </a>
-          </div>
-
-          <div className="w-full bg-white/5 border border-white/10 p-2 md:p-6 rounded-[2rem] shadow-2xl relative overflow-hidden h-[80vh] min-h-[600px]">
-            <div className="absolute inset-0 -z-10 flex flex-col items-center justify-center text-white/20 font-mono tracking-widest">
-              <FileText className="w-12 h-12 mb-4 animate-pulse text-white/30" />
-              <p>{t('menuPage.loading')}</p>
-            </div>
-            <iframe
-              src="/assets/JELOVNIK.pdf#toolbar=0&view=FitW"
-              className="w-full h-full rounded-xl border-0 bg-transparent grayscale opacity-90 invert-[0.05]"
-              title="Pizzeria EX Cjelokupni Jelovnik"
-            />
-          </div>
-        </div>
       </div>
 
       {/* Synchronized Brand Sections for Consistency */}
