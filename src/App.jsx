@@ -1356,21 +1356,42 @@ const MenuPage = () => {
 
             <div className="flex flex-col gap-8 md:gap-16 relative z-10">
               {menuData[activeCategory].items.map((item, idx) => (
-                <div key={idx} className="group/item relative">
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-baseline mb-1.5 gap-1">
-                    <h4 className="text-base md:text-2xl font-black uppercase tracking-tight text-white flex flex-wrap items-center gap-x-2">
-                       {item.name}
-                      {item.badge && (
-                        <span className="text-[7px] font-mono px-1 py-0.5 bg-champagne/20 text-champagne border border-champagne/30 tracking-widest uppercase rounded-sm">
-                          {item.badge}
-                        </span>
-                      )}
-                    </h4>
-                    <span className="text-base md:text-xl font-bold text-champagne whitespace-nowrap sm:ml-auto">{item.price}</span>
+                <div 
+                  key={`${activeCategory}-${idx}`} 
+                  className="group/item relative bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-champagne/30 p-6 md:p-8 rounded-3xl transition-all duration-500 shadow-xl hover:shadow-champagne/5 opacity-0 animate-menu-item"
+                  style={{ animationDelay: `${idx * 0.1}s` }}
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
+                    <div className="flex-1 w-full">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full bg-champagne/10 border border-champagne/20">
+                          <Star className="w-3 h-3 text-champagne fill-champagne" />
+                        </div>
+                        <h4 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white group-hover/item:text-champagne transition-colors duration-300">
+                          {item.name}
+                        </h4>
+                        <div className="hidden md:block flex-grow border-b border-dotted border-white/10 mx-4 mb-2" />
+                        <span className="hidden md:block text-2xl md:text-3xl font-black text-champagne">{item.price}</span>
+                      </div>
+                      
+                      <div className="flex flex-wrap items-center gap-3">
+                        {item.badge && (
+                          <span className="text-[8px] font-mono px-2 py-1 bg-champagne text-obsidian font-black tracking-[0.2em] uppercase rounded-full">
+                            {item.badge}
+                          </span>
+                        )}
+                        <span className="md:hidden text-xl font-black text-champagne">{item.price}</span>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-[11px] md:text-sm font-sans tracking-wide text-ivory/40 group-hover/item:text-ivory/70 transition-colors leading-relaxed">
+                  <p className="text-xs md:text-base font-sans tracking-wide text-ivory/50 group-hover/item:text-ivory/80 transition-colors leading-relaxed max-w-2xl">
                     {item.desc}
                   </p>
+
+                  {/* Decorative corner accent */}
+                  <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none opacity-0 group-hover/item:opacity-100 transition-opacity duration-700">
+                    <div className="absolute top-4 right-4 w-1 h-1 rounded-full bg-champagne" />
+                  </div>
                 </div>
               ))}
             </div>
