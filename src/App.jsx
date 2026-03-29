@@ -1199,7 +1199,67 @@ const HomePage = () => (
 );
 
 const MenuPage = () => {
-  const { t, lang } = React.useContext(LanguageContext);
+  const { t } = React.useContext(LanguageContext);
+  const [activeCategory, setActiveCategory] = useState(0);
+
+  const menuData = [
+    {
+      icon: <Star className="w-6 h-6" />,
+      category: t('menuPage.cat0'),
+      items: [
+        { name: t('menuPage.items.sp1_n'), desc: t('menuPage.items.sp1_d'), price: "19,50 €", badge: "Premium" },
+        { name: t('menuPage.items.sp2_n'), desc: t('menuPage.items.sp2_d'), price: "17,50 €" },
+        { name: t('menuPage.items.sp3_n'), desc: t('menuPage.items.sp3_d'), price: "18,20 €", badge: "Special Choice" },
+        { name: t('menuPage.items.sp4_n'), desc: t('menuPage.items.sp4_d'), price: "13,20 €" },
+        { name: t('menuPage.items.sp5_n'), desc: t('menuPage.items.sp5_d'), price: "15,20 €", badge: "Signature" }
+      ]
+    },
+    {
+      icon: <Pizza className="w-6 h-6" />,
+      category: t('menuPage.cat1'),
+      items: [
+        { name: t('menuPage.items.m1_n'), desc: t('menuPage.items.m1_d'), price: "12,30 €" },
+        { name: t('menuPage.items.m2_n'), desc: t('menuPage.items.m2_d'), price: "11,30 €" },
+        { name: t('menuPage.items.m3_n'), desc: t('menuPage.items.m3_d'), price: "11,40 €", badge: "Signature" },
+        { name: t('menuPage.items.m4_n'), desc: t('menuPage.items.m4_d'), price: "12,50 €", badge: "Premium" },
+        { name: t('menuPage.items.m5_n'), desc: t('menuPage.items.m5_d'), price: "11,30 €" }
+      ]
+    },
+    {
+      icon: <Flame className="w-6 h-6" />,
+      category: t('menuPage.cat2'),
+      items: [
+        { name: t('menuPage.items.g1_n'), desc: t('menuPage.items.g1_d'), price: "13,70 €" },
+        { name: t('menuPage.items.g2_n'), desc: t('menuPage.items.g2_d'), price: "14,70 €" },
+        { name: t('menuPage.items.g3_n'), desc: t('menuPage.items.g3_d'), price: "15,10 €", badge: t('menuPage.items.badge_pop') },
+        { name: t('menuPage.items.g4_n'), desc: t('menuPage.items.g4_d'), price: "15,30 €" },
+        { name: t('menuPage.items.g5_n'), desc: t('menuPage.items.g5_d'), price: "34,80 €", badge: t('menuPage.items.badge_share') }
+      ]
+    },
+    {
+      icon: <Coffee className="w-6 h-6" />,
+      category: t('menuPage.cat3'),
+      items: [
+        { name: t('menuPage.items.b1_n'), desc: t('menuPage.items.b1_d'), price: "6,90 €" },
+        { name: t('menuPage.items.b2_n'), desc: t('menuPage.items.b2_d'), price: "7,50 €" },
+        { name: t('menuPage.items.b5_n'), desc: t('menuPage.items.b5_d'), price: "7,30 €", badge: "New" },
+        { name: t('menuPage.items.b3_n'), desc: t('menuPage.items.b3_d'), price: "7,50 €" },
+        { name: t('menuPage.items.b4_n'), desc: t('menuPage.items.b4_d'), price: "7,30 €" }
+      ]
+    },
+    {
+      icon: <Utensils className="w-6 h-6" />,
+      category: t('menuPage.cat4'),
+      items: [
+        { name: t('menuPage.items.s1_n'), desc: t('menuPage.items.s1_d'), price: "16,70 €" },
+        { name: t('menuPage.items.s2_n'), desc: t('menuPage.items.s2_d'), price: "16,70 €" },
+        { name: t('menuPage.items.s3_n'), desc: t('menuPage.items.s3_d'), price: "18,20 €", badge: "Premium" },
+        { name: t('menuPage.items.s4_n'), desc: t('menuPage.items.s4_d'), price: "15,20 €" },
+        { name: t('menuPage.items.s5_n'), desc: t('menuPage.items.s5_d'), price: "14,40 €" },
+        { name: t('menuPage.items.s6_n'), desc: t('menuPage.items.s6_d'), price: "16,10 €", badge: "Extra" }
+      ]
+    }
+  ];
 
   return (
     <main className="pt-40 pb-24 bg-black min-h-screen text-ivory relative selection:bg-champagne selection:text-black">
@@ -1255,85 +1315,73 @@ const MenuPage = () => {
           </p>
         </div>
 
-        {/* Conversational Header */}
-        <div className="text-center mb-12 md:mb-20 px-4 pt-24 border-t border-white/10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-champagne/10 border border-champagne/20 rounded-full text-champagne text-[9px] md:text-xs font-mono tracking-[0.3em] uppercase mb-8">
-            <Star size={12} className="fill-champagne" />
-            {t('menuPage.chef')}
-          </div>
-          <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white mb-6 leading-[0.9]">
-            {lang === 'hr' ? 'Ne znate što odabrati?' : 'Not sure what to choose?'}
-          </h2>
-          <p className="max-w-2xl mx-auto text-ivory/60 font-serif italic text-base md:text-xl leading-relaxed">
-            {lang === 'hr' 
-              ? 'Ako ste prvi put kod nas — krenite odavde. Preskočite razmišljanje i uživajte u našim najprovjerenijim jelima.' 
-              : 'Our most proven dishes — simple, delicious, and guaranteed to satisfy. If it’s your first time, start right here.'}
-          </p>
+        {/* Interactive Menu Highlights Header */}
+        <div className="mb-6 md:mb-10 flex items-center gap-3 border-t border-white/10 pt-24">
+          <Star className="w-5 h-5 text-champagne fill-champagne" />
+          <h2 className="text-xl md:text-2xl font-black uppercase tracking-widest text-white/90">{t('menuPage.chef')}</h2>
         </div>
 
-        {/* Gallery Grid - The Golden 12 Selection */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 mb-24 md:mb-32">
-          {/* Featured Hero Item - Multi-column span */}
-          <div className="md:col-span-2 group/item relative bg-white/[0.03] border border-champagne/30 p-8 md:p-16 rounded-[3rem] transition-all duration-700 shadow-2xl shadow-champagne/5 overflow-hidden animate-menu-item" style={{ animationDelay: '0.1s' }}>
-            <div className="absolute top-0 right-0 w-96 h-96 bg-champagne/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
-            <div className="relative z-10">
-               <div className="flex flex-wrap items-center gap-4 mb-4 md:mb-6">
-                 <span className="px-4 py-1.5 bg-champagne text-obsidian text-[10px] md:text-xs font-black tracking-[0.2em] uppercase rounded-full shadow-lg shadow-champagne/20">
-                   🔥 {lang === 'hr' ? 'MUST TRY' : 'MUST TRY'}
-                 </span>
-                 <span className="text-ivory/40 font-mono text-xs uppercase tracking-widest">{t('menuPage.cat0')}</span>
-               </div>
-               <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-8">
-                 <h4 className="text-4xl md:text-7xl font-black uppercase tracking-tighter text-white group-hover/item:text-champagne transition-colors duration-500 max-w-2xl">
-                   {t('menuPage.items.sp1_n')}
-                 </h4>
-                 <span className="text-4xl md:text-6xl font-black text-champagne">19,50 €</span>
-               </div>
-               <p className="text-base md:text-2xl font-serif italic text-ivory/70 leading-relaxed max-w-3xl">
-                 {t('menuPage.items.sp1_d')}
-               </p>
+        <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32">
+          {/* Categories Navigation - Pill Style for Mobile */}
+          <div className="lg:col-span-4 relative">
+            <div className="flex lg:flex-col overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory gap-2 md:gap-4 px-1 lg:px-0 pb-4 lg:pb-0">
+              {menuData.map((cat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveCategory(idx)}
+                  className={cn(
+                    "flex-none flex items-center gap-2 px-5 py-3 md:p-6 transition-all duration-500 rounded-full lg:rounded-none lg:rounded-r-2xl snap-center focus:outline-none whitespace-nowrap",
+                    activeCategory === idx
+                      ? "bg-champagne text-obsidian shadow-lg shadow-champagne/20 border-transparent"
+                      : "bg-white/5 border border-white/10 text-ivory/50 hover:bg-white/10 hover:text-white"
+                  )}
+                >
+                  <div className={cn("transition-colors duration-500", activeCategory === idx ? "text-obsidian" : "text-champagne")}>
+                    {React.cloneElement(cat.icon, { size: 16 })}
+                  </div>
+                  <h3 className="font-bold tracking-widest uppercase text-[9px] md:text-xs">{cat.category}</h3>
+                </button>
+              ))}
             </div>
           </div>
 
-          {[
-            { id: 'sp5_n', id_d: 'sp5_d', category: t('menuPage.cat0'), price: "15,20 €", badge: "⭐ BEST SELLER" },
-            { id: 'm3_n', id_d: 'm3_d', category: t('menuPage.cat1'), price: "11,40 €", badge: "🏆 SIGNATURE" },
-            { id: 'g5_n', id_d: 'g5_d', category: t('menuPage.cat2'), price: "34,80 €", badge: "🔥 FOR SHARING" },
-            { id: 'm4_n', id_d: 'm4_d', category: t('menuPage.cat1'), price: "12,50 €", badge: "💎 PREMIUM" },
-            { id: 'g3_n', id_d: 'g3_d', category: t('menuPage.cat2'), price: "15,10 €", badge: "👨‍🍳 CHEF CHOICE" },
-            { id: 's3_n', id_d: 's3_d', category: t('menuPage.cat4'), price: "18,20 €", badge: "🌊 FRESH FISH" },
-            { id: 's4_n', id_d: 's4_d', category: t('menuPage.cat4'), price: "15,20 €", badge: "⭐ POPULAR" },
-            { id: 'b1_n', id_d: 'b1_d', category: t('menuPage.cat3'), price: "6,90 €", badge: "🍳 MORNING STAR" },
-            { id: 'm1_n', id_d: 'm1_d', category: t('menuPage.cat1'), price: "12,30 €", badge: "🍕 BBQ ICON" },
-            { id: 'g2_n', id_d: 'g2_d', category: t('menuPage.cat2'), price: "14,70 €", badge: "🥩 GRILL MASTER" },
-            { id: 's6_n', id_d: 's6_d', category: t('menuPage.cat4'), price: "16,10 €", badge: "🏆 TOP CHOICE" }
-          ].map((item, idx) => (
-            <div key={idx} className="group/item relative bg-white/[0.02] hover:bg-white/[0.04] border border-white/5 hover:border-champagne/30 p-8 md:p-12 rounded-[2.5rem] transition-all duration-700 shadow-xl hover:shadow-champagne/5 opacity-0 animate-menu-item" style={{ animationDelay: `${(idx + 2) * 0.1}s` }}>
-               <div className="flex items-center justify-between mb-6">
-                 <span className="text-[8px] md:text-[10px] font-mono px-3 py-1 bg-white/5 border border-white/10 text-ivory/40 tracking-[0.2em] uppercase rounded-full">{item.category}</span>
-                 <Star size={14} className="text-champagne/40 fill-champagne/40" />
-               </div>
-               <div className="flex justify-between items-start mb-4 gap-4">
-                 <h4 className="text-xl md:text-3xl font-black uppercase tracking-tighter text-white group-hover/item:text-champagne transition-colors duration-300 flex-1">
-                   {t(`menuPage.items.${item.id}`)}
-                 </h4>
-                 <span className="text-xl md:text-2xl font-black text-champagne">{item.price}</span>
-               </div>
-               <p className="text-xs md:text-base font-sans tracking-wide text-ivory/40 group-hover/item:text-ivory/60 transition-colors leading-relaxed mb-8">
-                 {t(`menuPage.items.${item.id_d}`)}
-               </p>
-               <div className="flex items-center gap-2">
-                 <div className="w-1.5 h-1.5 rounded-full bg-champagne" />
-                 <span className="text-[9px] md:text-[10px] font-black tracking-[0.2em] uppercase text-champagne">{item.badge}</span>
-               </div>
-            </div>
-          ))}
-        </div>
+          {/* Items Display */}
+          <div className="lg:col-span-8 bg-white/[0.03] border border-white/10 p-5 md:p-12 h-fit rounded-[1.5rem] md:rounded-[2.5rem] relative overflow-hidden backdrop-blur-sm">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-champagne/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2 opacity-30" />
+            
+            <h2 className="text-lg md:text-2xl font-black uppercase tracking-widest text-white mb-8 md:mb-10 flex items-center gap-3 relative z-10 border-b border-white/10 pb-4">
+              <span className="text-champagne opacity-70">{menuData[activeCategory].icon}</span>
+              {menuData[activeCategory].category}
+            </h2>
 
-        <div className="text-center mt-12 mb-24 md:mb-32">
-          <div className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-ivory/40 text-[9px] md:text-xs font-mono tracking-widest uppercase">
-            <Info size={12} />
-             {t('menuPage.disclaimer')}
+            <div key={activeCategory} className="flex flex-col gap-10 md:gap-14 relative z-10 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+              {menuData[activeCategory].items.map((item, idx) => (
+                <div key={idx} className="group/item relative">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center mb-2 gap-2">
+                    <h4 className="text-lg md:text-2xl font-black uppercase tracking-tight text-white flex flex-wrap items-center gap-x-2">
+                       {item.name}
+                      {item.badge && (
+                        <span className="text-[7px] font-mono px-1.5 py-0.5 bg-champagne/20 text-champagne border border-champagne/30 tracking-widest uppercase rounded-full">
+                          {item.badge}
+                        </span>
+                      )}
+                    </h4>
+                    <div className="hidden sm:block flex-grow border-b border-dotted border-white/10 mx-4 h-0 self-center opacity-40 group-hover/item:border-champagne/30 transition-colors" />
+                    <span className="text-lg md:text-xl font-black text-champagne whitespace-nowrap sm:ml-auto bg-black/40 px-3 py-1 rounded-lg border border-white/5">{item.price}</span>
+                  </div>
+                  <p className="text-[11px] md:text-sm font-sans tracking-wide text-ivory/40 group-hover/item:text-ivory/70 transition-colors leading-relaxed mt-2 max-w-2xl">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-center gap-2 relative z-10">
+              <Info size={10} className="text-white/20" />
+              <p className="text-[8px] md:text-xs font-mono uppercase tracking-widest text-white/20 text-center">
+                {t('menuPage.disclaimer')}
+              </p>
+            </div>
           </div>
         </div>
 
