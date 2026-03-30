@@ -339,6 +339,8 @@ const EXLogo = ({ className }) => (
     src="/assets/logo_no_bg.png" 
     alt="Pizzeria Ex Logo"
     className={cn("w-24 h-24 object-contain rounded-full", className)}
+    width={96}
+    height={96}
   />
 );
 
@@ -521,6 +523,8 @@ const Hero = () => {
           alt="Luxury Pizza"
           loading="eager"
           fetchpriority="high"
+          width={1920}
+          height={1080}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
       </div>
@@ -766,6 +770,8 @@ const FoodGallery = () => {
                 src={item.img} 
                 className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
                 alt={item.title} 
+                width={800}
+                height={600}
               />
               <div className="absolute inset-0 bg-obsidian/10 group-hover:bg-transparent transition-colors duration-700" />
             </div>
@@ -818,6 +824,8 @@ const Philosophy = () => {
           src="https://images.unsplash.com/photo-1514361892635-6b07e31e75f9?q=80&w=2670&auto=format&fit=crop"
           className="w-full h-full object-cover"
           alt="Atmosphere"
+          width={1920}
+          height={1080}
         />
       </div>
 
@@ -889,7 +897,13 @@ const ProtocolSection = () => {
         >
           {/* Enhanced Image Visibility - Grayscale but brighter */}
           <div className="absolute inset-0 opacity-45 grayscale mix-blend-luminosity">
-            <img src={step.bg} className="w-full h-full object-cover" alt={step.title} />
+            <img 
+              src={step.bg} 
+              className="w-full h-full object-cover" 
+              alt={step.title} 
+              width={1920}
+              height={1080}
+            />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
           </div>
 
