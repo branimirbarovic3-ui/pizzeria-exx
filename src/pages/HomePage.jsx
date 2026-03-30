@@ -4,7 +4,8 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { 
   ArrowRight, ChefHat, Calendar, Activity, Clock, Scan, 
-  Zap, Star, ChevronLeft, ChevronRight, Check, Pizza, Flame, Utensils
+  Zap, Star, ChevronLeft, ChevronRight, Check, Pizza, Flame, Utensils,
+  CreditCard, Bike, ShoppingBag
 } from 'lucide-react';
 import { cn } from '../utils/cn';
 import { LanguageContext } from '../context/LanguageContext';

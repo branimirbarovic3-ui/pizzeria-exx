@@ -10,8 +10,8 @@ import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
-// Lazy Loaded Pages
-const HomePage = lazy(() => import('./pages/HomePage'));
+// Lazy Loaded Pages & Direct
+import HomePage from './pages/HomePage';
 const MenuPage = lazy(() => import('./pages/MenuPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
 
