@@ -378,7 +378,7 @@ const Navbar = () => {
           "flex items-center justify-between px-6 py-3 rounded-full border border-obsidian/10",
           "w-[90%] max-w-4xl",
           isScrolled
-            ? "bg-ivory/60 backdrop-blur-xl py-2 shadow-2xl"
+            ? "bg-ivory/60 backdrop-blur-xl shadow-2xl"
             : "bg-transparent border-transparent"
         )}
       >
