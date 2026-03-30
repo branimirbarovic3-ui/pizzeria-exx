@@ -38,8 +38,6 @@ import {
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
-const cn = (...inputs) => twMerge(clsx(inputs));
-
 // --- Translations ---
 const translations = {
   hr: {
