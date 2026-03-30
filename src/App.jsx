@@ -513,7 +513,7 @@ const Hero = () => {
   return (
     <section
       ref={containerRef}
-      className="relative h-[100dvh] w-full flex items-center justify-center md:items-end md:justify-start p-8 md:p-24 overflow-hidden text-center md:text-left"
+      className="relative min-h-screen h-screen w-full flex items-center justify-center md:items-end md:justify-start p-8 md:p-24 overflow-hidden text-center md:text-left bg-obsidian"
     >
       {/* Background Image - Luxury Pizza Noir */}
       <div className="absolute inset-0 z-0">
