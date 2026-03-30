@@ -334,13 +334,14 @@ gsap.registerPlugin(ScrollTrigger);
 
 // --- Components ---
 
-const EXLogo = ({ className }) => (
+const EXLogo = ({ className, ...props }) => (
   <img 
     src="/assets/logo_no_bg.png" 
     alt="Pizzeria Ex Logo"
     className={cn("w-24 h-24 object-contain rounded-full", className)}
     width={96}
     height={96}
+    {...props}
   />
 );
 
@@ -772,6 +773,7 @@ const FoodGallery = () => {
                 alt={item.title} 
                 width={800}
                 height={600}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-obsidian/10 group-hover:bg-transparent transition-colors duration-700" />
             </div>
@@ -826,6 +828,7 @@ const Philosophy = () => {
           alt="Atmosphere"
           width={1920}
           height={1080}
+          loading="lazy"
         />
       </div>
 
@@ -903,6 +906,7 @@ const ProtocolSection = () => {
               alt={step.title} 
               width={1920}
               height={1080}
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
           </div>
@@ -1143,7 +1147,7 @@ const Footer = () => {
         {/* Col 1: Brand */}
         <div className="flex flex-col items-center md:items-start">
           <Link to="/" className="mb-0 group">
-            <EXLogo className="w-24 h-24 mb-4" />
+            <EXLogo className="w-24 h-24 mb-4" loading="lazy" />
           </Link>
           <p className="text-ivory/80 max-w-sm leading-relaxed text-lg font-serif italic mb-8 mx-auto md:mx-0">
             {t('brandDesc')}
