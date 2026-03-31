@@ -2,21 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  color-scheme: dark;
-  --background: #0D0D12; /* obsidian */
-  --primary: #FAF8F5;    /* ivory fallback */
-  --accent: #C9A84C;     /* champagne */
-  --text: #FAF8F5;       /* ivory text */
-  --obsidian: #0D0D12;
-  --ivory: #FAF8F5;
-  --champagne: #C9A84C;
+html {
+  forced-color-adjust: none !important;
+  color-scheme: dark only !important;
+  background-color: #0D0D12 !important;
 }
 
 @layer base {
   body {
     @apply bg-obsidian text-ivory font-sans selection:bg-champagne selection:text-obsidian;
-    background-color: #0D0D12; /* Fallback absolute for Samsung */
+    background-color: #0D0D12 !important;
+    color: #FAF8F5 !important;
+    forced-color-adjust: none !important;
+    -webkit-text-size-adjust: 100%;
   }
 }
 
