@@ -73,7 +73,7 @@ const translations = {
     },
     brandDesc: 'Čuvari tradicije i vrhunskog okusa. Naš stol je vaš dom od 1988. godine.',
     philosophy: {
-      label: 'NAŠ MANIFESTO',
+      label: 'NAŠ MANIFEST',
       intro: 'U svijetu brzih izbora i prolaznih trendova',
       introHigh: '',
       focus: 'Mi se fokusiramo na',
@@ -200,7 +200,7 @@ const translations = {
     },
     brandDesc: 'Guardians of tradition and top flavor. Our table has been your home since 1988.',
     philosophy: {
-      label: 'OUR MANIFESTO',
+      label: 'OUR MANIFEST',
       intro: 'In a world of fast choices and passing trends,',
       introHigh: '',
       focus: 'We focus on:',
