@@ -19,6 +19,22 @@ html {
 }
 
 @layer utilities {
+  /* Samsung Internet Anti-Inversion Shield */
+  .bg-champagne {
+    background-image: linear-gradient(0deg, #C9A84C, #C9A84C) !important;
+    background-color: #C9A84C !important;
+  }
+  .bg-ivory {
+    background-image: linear-gradient(0deg, #FAF8F5, #FAF8F5) !important;
+    background-color: #FAF8F5 !important;
+  }
+  .text-champagne {
+    color: #C9A84C !important;
+  }
+  .text-ivory {
+    color: #FAF8F5 !important;
+  }
+
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
