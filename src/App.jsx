@@ -1315,17 +1315,6 @@ const MenuPage = () => {
             </a>
           </div>
 
-          <div className="w-full bg-white/5 border border-white/10 p-2 md:p-6 rounded-[2rem] shadow-2xl relative overflow-hidden h-[80vh] min-h-[600px]">
-            <div className="absolute inset-0 -z-10 flex flex-col items-center justify-center text-white/10 font-mono tracking-widest text-[8px] md:text-sm">
-              <FileText className="w-8 h-8 mb-4 animate-pulse text-white/20" />
-              <p className="uppercase opacity-50">{t('menuPage.loading')}</p>
-            </div>
-            <iframe
-              src={`https://docs.google.com/viewer?url=https://www.pizzeriaex.com/assets/JELOVNIK.pdf&embedded=true`}
-              className="w-full h-full rounded-xl border-0 bg-transparent grayscale opacity-90"
-              title="Pizzeria EX Cjelokupni Jelovnik"
-            />
-          </div>
         </div>
 
         <div className="text-center mb-16 px-4">
