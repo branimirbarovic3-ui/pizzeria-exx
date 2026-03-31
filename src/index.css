@@ -15,7 +15,8 @@
 
 @layer base {
   body {
-    @apply bg-ivory text-slate font-sans selection:bg-champagne selection:text-obsidian;
+    @apply bg-obsidian text-ivory font-sans selection:bg-champagne selection:text-obsidian;
+    background-color: #0D0D12; /* Fallback absolute for Samsung */
   }
 }
 
