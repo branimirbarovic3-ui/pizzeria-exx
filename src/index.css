@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --background: #FAF8F5; /* ivory */
-  --primary: #0D0D12;    /* obsidian */
+  color-scheme: dark;
+  --background: #0D0D12; /* obsidian */
+  --primary: #FAF8F5;    /* ivory fallback */
   --accent: #C9A84C;     /* champagne */
-  --text: #2A2A35;       /* slate */
+  --text: #FAF8F5;       /* ivory text */
+  --obsidian: #0D0D12;
+  --ivory: #FAF8F5;
+  --champagne: #C9A84C;
 }
 
 @layer base {
