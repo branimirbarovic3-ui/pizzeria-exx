@@ -386,10 +386,16 @@ const Navbar = () => {
         <Link to="/" className="flex items-center group cursor-pointer">
           <EXLogo className="w-16 h-16 md:w-20 md:h-20 -my-4 drop-shadow-2xl transition-transform duration-500 group-hover:scale-105" />
           <div className={cn(
-            "ml-2 md:ml-4 text-base md:text-xl font-serif font-black tracking-tighter transition-colors duration-300",
+            "ml-2 md:ml-4 flex items-center gap-2 md:gap-3 transition-colors duration-300",
             isScrolled ? "text-obsidian" : "text-ivory"
           )}>
-            PIZZERIA RESTORAN EX
+            <div className="flex flex-col leading-[0.8] font-serif font-black tracking-tighter text-[9px] md:text-[11px] uppercase opacity-80">
+              <span className="mb-0.5">Pizzeria</span>
+              <span>Restoran</span>
+            </div>
+            <div className="text-2xl md:text-4xl font-serif font-black tracking-tighter leading-none italic group-hover:text-champagne transition-colors duration-500">
+              EX
+            </div>
           </div>
         </Link>
 
