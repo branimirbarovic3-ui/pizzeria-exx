@@ -97,7 +97,7 @@ const translations = {
       sub: 'Kontaktirajte nas za rezervacije, informacije ili organizaciju vaših najvažnijih trenutaka.',
       events: {
         title: 'Proslave & Domjenci',
-        body: 'Planirate li poslovni događaj, krizmu, pričest ili svečanu promociju? Pizzeria EX nudi vam više od samog prostora – nudimo kompletno, bezbrižno iskustvo. Slažemo personalizirane premium menije prema vašim željama.',
+        body: 'Planirate li poslovni događaj, krizmu, pričest ili svečanu promociju? RESTORAN EX nudi vam više od samog prostora – nudimo kompletno, bezbrižno iskustvo. Slažemo personalizirane premium menije prema vašim željama.',
         cta: 'Javite nam se za personaliziranu ponudu.'
       },
       form: {
@@ -143,7 +143,7 @@ const translations = {
         sp5_n: "BBQ Rebarca", sp5_d: "Slasna svinjska rebarca u domaćem BBQ umaku uz krumpiriće.",
         m1_n: "Pizza BBQ", m1_d: "Sir, piletina s roštilja, Worcestershire umak, kečap, kapula, masline",
         m2_n: "Pizza Dimljena Piletina", m2_d: "Sir, dimljena piletina, vrhnje, zelena salata, tartar umak, masline",
-        m3_n: "Pizzeria EX", m3_d: "Pelati, sir, šunka, feta sir, artičoke, gljive, origano",
+        m3_n: "RESTORAN EX", m3_d: "Pelati, sir, šunka, feta sir, artičoke, gljive, origano",
         m4_n: "Tartufata", m4_d: "Pelati, sir, šunka, gljive, pršut, salsa tartufata, origano",
         m5_n: "Slavonska", m5_d: "Pelati, sir, kulen, hamburger, paprika, maslina",
         g1_n: "Ćevapčići", g1_d: "10 kom, juneće mljeveno meso, pomfrit",
@@ -224,7 +224,7 @@ const translations = {
       sub: 'Contact us for reservations, information, or organization of your most important moments.',
       events: {
         title: 'Events & Celebrations',
-        body: 'Planning a business event, confirmation, first communion, or formal promotion? Pizzeria EX offers more than just space – we offer a complete, carefree experience. We create personalized premium menus according to your wishes.',
+        body: 'Planning a business event, confirmation, first communion, or formal promotion? RESTORAN EX offers more than just space – we offer a complete, carefree experience. We create personalized premium menus according to your wishes.',
         cta: 'Contact us for a personalized offer.'
       },
       form: {
@@ -270,7 +270,7 @@ const translations = {
         sp5_n: "BBQ Ribs", sp5_d: "Delicious pork ribs in homemade BBQ sauce with fries.",
         m1_n: "BBQ Pizza", m1_d: "Cheese, grilled chicken, Worcestershire sauce, ketchup, onion, olives",
         m2_n: "Smoked Chicken Pizza", m2_d: "Cheese, smoked chicken, cream, lettuce, tartar sauce, olives",
-        m3_n: "Pizzeria EX", m3_d: "Tomato sauce, cheese, ham, feta cheese, artichokes, mushrooms, oregano",
+        m3_n: "RESTORAN EX", m3_d: "Tomato sauce, cheese, ham, feta cheese, artichokes, mushrooms, oregano",
         m4_n: "Tartufata", m4_d: "Tomato sauce, cheese, ham, mushrooms, prosciutto, truffle salsa, oregano",
         m5_n: "Slavonian", m5_d: "Tomato sauce, cheese, kulen, burger-meat, bell peppers, olive",
         g1_n: "Ćevapčići", g1_d: "10 pcs, minced beef, fries",
@@ -337,7 +337,7 @@ gsap.registerPlugin(ScrollTrigger);
 const EXLogo = ({ className, ...props }) => (
   <img 
     src="/assets/logo_no_bg.png" 
-    alt="Pizzeria Ex Logo"
+    alt="RESTORAN EX Logo"
     className={cn("w-24 h-24 object-contain rounded-full", className)}
     width={96}
     height={96}
@@ -389,7 +389,7 @@ const Navbar = () => {
             "ml-2 md:ml-4 text-base md:text-xl font-serif font-black tracking-tighter transition-colors duration-300",
             isScrolled ? "text-obsidian" : "text-ivory"
           )}>
-            PIZZERIA EX
+            RESTORAN EX
           </div>
         </Link>
 
@@ -1028,7 +1028,7 @@ const ContactSection = () => {
                 }}
               >
                 {/* FormSubmit Configuration */}
-                <input type="hidden" name="_subject" value="Novi upit - Pizzeria EX Website" />
+                <input type="hidden" name="_subject" value="Novi upit - RESTORAN EX Website" />
                 <input type="hidden" name="_template" value="table" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1201,7 +1201,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto pt-12 border-t border-white/10 flex flex-col justify-center items-center text-center">
         <div className="text-ivory/60 text-[10px] font-mono uppercase tracking-[0.3em]">
-          © {new Date().getFullYear()} Pizzeria EX. {t('footer.rights')}
+          © {new Date().getFullYear()} RESTORAN EX. {t('footer.rights')}
         </div>
       </div>
     </footer>
