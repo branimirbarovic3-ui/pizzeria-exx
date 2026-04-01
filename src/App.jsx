@@ -389,7 +389,7 @@ const Navbar = () => {
             "ml-2 md:ml-4 text-base md:text-xl font-serif font-black tracking-tighter transition-colors duration-300",
             isScrolled ? "text-obsidian" : "text-ivory"
           )}>
-            PIZZERIA EX
+            RESTORAN EX
           </div>
         </Link>
 
@@ -1028,7 +1028,7 @@ const ContactSection = () => {
                 }}
               >
                 {/* FormSubmit Configuration */}
-                <input type="hidden" name="_subject" value="Novi upit - Pizzeria EX Website" />
+                <input type="hidden" name="_subject" value="Novi upit - Restoran EX Website" />
                 <input type="hidden" name="_template" value="table" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1201,7 +1201,7 @@ const Footer = () => {
 
       <div className="max-w-7xl mx-auto pt-12 border-t border-white/10 flex flex-col justify-center items-center text-center">
         <div className="text-ivory/60 text-[10px] font-mono uppercase tracking-[0.3em]">
-          © {new Date().getFullYear()} Pizzeria EX. {t('footer.rights')}
+          © {new Date().getFullYear()} Restoran EX. {t('footer.rights')}
         </div>
       </div>
     </footer>
