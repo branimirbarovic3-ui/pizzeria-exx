@@ -336,7 +336,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const EXLogo = ({ className, ...props }) => (
   <img 
-    src="/assets/logo_no_bg.png" 
+    src="/assets/logo_no_bg_small.png" 
     alt="Pizzeria Ex Logo"
     className={cn("w-24 h-24 object-contain rounded-full", className)}
     width={96}
@@ -743,9 +743,9 @@ const FoodGallery = () => {
   const scrollRef = useRef(null);
 
   const finalItems = [
-    { title: t('gallery.item1'), img: "/assets/oradasazara.png" },
-    { title: t('gallery.item2'), img: "/assets/teletina.png" },
-    { title: t('gallery.item3'), img: "/assets/losos.png" }
+    { title: t('gallery.item1'), img: "/assets/oradasazara.jpg" },
+    { title: t('gallery.item2'), img: "/assets/teletina.jpg" },
+    { title: t('gallery.item3'), img: "/assets/losos.jpg" }
   ];
 
   return (
