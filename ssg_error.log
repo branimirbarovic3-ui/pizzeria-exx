@@ -1,0 +1,158 @@
+
+> pizzeriaex@0.0.0 build
+> vite-ssg build
+
+
+[90m[vite-ssg][39m [33mBuild for client...[39m
+vite v6.4.1 building for production...
+transforming...
+✓ 1609 modules transformed.
+✗ Build failed in 1.04s
+node:internal/process/promises:332
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+node_modules/vite-ssg/dist/index.mjs (4:9): "createRouter" is not exported by "__vite-optional-peer-dep:vue-router:vite-ssg", imported by "node_modules/vite-ssg/dist/index.mjs".
+file: /Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/index.mjs:4:9
+
+2: import { createHead } from '@unhead/vue/server';
+3: import { createSSRApp, createApp } from 'vue';
+4: import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router';
+            ^
+5: import { C as ClientOnly, d as documentReady } from './shared/vite-ssg.ETIvV-80.mjs';
+6: import { d as deserializeState } from './shared/vite-ssg.C6pK7rvr.mjs';
+
+    at getRollupError (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/parseAst.js:406:41)
+    at error (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/parseAst.js:402:42)
+    at Module.error (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:17065:16)
+    at Module.traceVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:17477:29)
+    at ModuleScope.findVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:15090:39)
+    at FunctionScope.findVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:5676:38)
+    at FunctionBodyScope.findVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:5676:38)
+    at FunctionScope.findVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:5676:38)
+    at FunctionBodyScope.findVariable (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:5676:38)
+    at Identifier.bind (file:///Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/rollup/dist/es/shared/node-entry.js:5450:40) {
+  binding: 'createRouter',
+  code: 'MISSING_EXPORT',
+  exporter: '__vite-optional-peer-dep:vue-router:vite-ssg',
+  id: '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/index.mjs',
+  url: 'https://rollupjs.org/troubleshooting/#error-name-is-not-exported-by-module',
+  pos: 170,
+  loc: {
+    column: 9,
+    file: '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/index.mjs',
+    line: 4
+  },
+  frame: "2: import { createHead } from '@unhead/vue/server';\n" +
+    "3: import { createSSRApp, createApp } from 'vue';\n" +
+    "4: import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router';\n" +
+    '            ^\n' +
+    "5: import { C as ClientOnly, d as documentReady } from './shared/vite-ssg.ETIvV-80.mjs';\n" +
+    "6: import { d as deserializeState } from './shared/vite-ssg.C6pK7rvr.mjs';",
+  watchFiles: [
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/index.html',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/src/main.jsx',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/package.json',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/src/index.css',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/src/App.jsx',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/tailwind.config.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vue/dist/vue.runtime.esm-bundler.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@unhead/vue/dist/client.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/shared/vite-ssg.C6pK7rvr.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@unhead/vue/dist/server.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/vite-ssg/dist/shared/vite-ssg.ETIvV-80.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/client.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@unhead/vue/dist/shared/vue.Cr7xSEtD.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/plugins.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@unhead/vue/dist/shared/vue.BM998iwd.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/utils.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@unhead/vue/dist/shared/vue.N9zWjxoK.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react/jsx-runtime.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/gsap/index.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react-router-dom/dist/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/gsap/ScrollTrigger.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react/index.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/lucide-react.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@vercel/analytics/dist/react/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@vercel/speed-insights/dist/react/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/clsx/dist/clsx.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/tailwind-merge/dist/bundle-mjs.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/server.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.B5FWS6X0.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.yem5I2v_.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.BYvz9V1x.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.CbpEuj3y.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.DQc16pHI.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.Ct24BOby.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.D4vSFytZ.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/unhead/dist/shared/unhead.TxTMM7cM.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/hookable/dist/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/gsap/gsap-core.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/gsap/CSSPlugin.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/gsap/Observer.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react-router/dist/development/index.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react/cjs/react-jsx-runtime.production.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/a-large-small.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react/cjs/react.production.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/react-router/dist/development/dom-export.mjs',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/air-vent.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/a-arrow-down.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/accessibility.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/index.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/alarm-clock.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/alarm-smoke.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/alarm-clock-off.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/airplay.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/a-arrow-up.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/album.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/activity.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-center.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-center-vertical.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-distribute-center.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-center-horizontal.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-end-vertical.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-distribute-end.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-end-horizontal.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-distribute-start.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-justify-start.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-space-around.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-space-between.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-justify-end.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-horizontal-justify-center.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-justify.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-start-horizontal.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-right.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-start-vertical.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-distribute-center.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-distribute-start.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-justify-center.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-distribute-end.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-justify-end.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-justify-start.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-space-between.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/ambulance.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-vertical-space-around.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/anchor.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/ampersand.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/amphora.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/ampersands.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/angry.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/anvil.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/aperture.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/align-left.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/antenna.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/annoyed.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/app-window-mac.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/apple.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/archive.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/archive-x.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/app-window.js',
+    '/Users/branimirbarovic/.gemini/antigravity/scratch/miran-let/pizzeriaex/node_modules/lucide-react/dist/esm/icons/arrow-big-down.js',
+    ... 1495 more items
+  ],
+  Symbol(augmented): true
+}
+
+Node.js v25.8.2
