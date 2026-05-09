@@ -1030,6 +1030,7 @@ const ContactSection = () => {
                 {/* FormSubmit Configuration */}
                 <input type="hidden" name="_subject" value="Novi upit - Pizzeria EX Website" />
                 <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <input type="text" name="First Name" placeholder={t('contact.form.fname')} required className="w-full bg-obsidian border border-ivory/20 rounded-xl px-6 py-4 text-ivory placeholder:text-ivory/60 focus:outline-none focus:border-champagne transition-colors" />
