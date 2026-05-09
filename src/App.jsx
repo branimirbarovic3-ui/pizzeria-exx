@@ -1014,12 +1014,13 @@ const ContactSection = () => {
                   const data = Object.fromEntries(formData.entries());
                   
                   try {
-                    const response = await fetch("https://formsubmit.co/ajax/pizzeriaex.rijeka@gmail.com", {
+                    const response = await fetch("https://api.web3forms.com/submit", {
                       method: "POST",
                       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                       body: JSON.stringify(data)
                     });
-                    if (!response.ok) throw new Error('Network response was not ok');
+                    const result = await response.json();
+                    if (!result.success) throw new Error('Submission failed');
                     setFormStatus('success');
                   } catch (err) {
                     setFormStatus('error');
@@ -1027,10 +1028,10 @@ const ContactSection = () => {
                   }
                 }}
               >
-                {/* FormSubmit Configuration */}
-                <input type="hidden" name="_subject" value="Novi upit - Pizzeria EX Website" />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
+                {/* Web3Forms Configuration */}
+                <input type="hidden" name="access_key" value="81dab4a0-c5b3-4344-9ed9-94d29f080561" />
+                <input type="hidden" name="subject" value="Novi upit - Pizzeria EX Website" />
+                <input type="hidden" name="from_name" value="Pizzeria EX Website" />
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <input type="text" name="First Name" placeholder={t('contact.form.fname')} required className="w-full bg-obsidian border border-ivory/20 rounded-xl px-6 py-4 text-ivory placeholder:text-ivory/60 focus:outline-none focus:border-champagne transition-colors" />
