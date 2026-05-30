@@ -135,6 +135,7 @@ const translations = {
       fullDesc: 'Prelistajte našu potpunu ponudu u PDF izdanju.',
       btn: 'Preuzmi PDF',
       loading: 'Očitavanje cjelokupnog dokumenta...',
+      updatedNote: 'Ažurirano: Svibanj 2026.',
       items: {
         sp1_n: "Teletina Pod Pekom", sp1_d: "Vrhunska teletina polagano pečena s krumpirom pod tradicionalnom pekom.",
         sp2_n: "Orada Sa Žara", sp2_d: "Svježa orada sa žara poslužena s blitvom na dalmatinski.",
@@ -262,6 +263,7 @@ const translations = {
       fullDesc: 'Browse our complete offer in the PDF edition.',
       btn: 'Download PDF',
       loading: 'Loading the full document...',
+      updatedNote: 'Updated: May 2026.',
       items: {
         sp1_n: "Veal Under the Bell", sp1_d: "Traditional slow-roasted veal with potatoes under the iron bell.",
         sp2_n: "Grilled Sea Bream", sp2_d: "Fresh grilled sea bream served with Swiss chard and potatoes.",
@@ -1295,11 +1297,14 @@ const MenuPage = () => {
         <div className="pt-24 border-t border-white/10 mb-24 md:mb-32">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-8 text-center md:text-left">
             <div className="max-w-xl">
-              <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 mb-4">
                 <FileText className="w-6 h-6 text-champagne" />
                 <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-white">
                   {t('menuPage.full')}
                 </h2>
+                <span className="inline-block text-[9px] md:text-[10px] font-mono tracking-widest uppercase bg-champagne/10 border border-champagne/30 text-champagne px-3 py-1 rounded-full animate-pulse">
+                  {t('menuPage.updatedNote')}
+                </span>
               </div>
               <p className="text-ivory/60 font-mono text-xs md:text-sm tracking-widest leading-relaxed uppercase">
                 {t('menuPage.fullDesc')}
