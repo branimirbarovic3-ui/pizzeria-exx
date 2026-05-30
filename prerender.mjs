@@ -12,6 +12,10 @@ const distDir = path.join(__dirname, 'dist');
 const routes = ['/', '/jelovnik'];
 
 async function runPrerender() {
+  if (process.env.VERCEL) {
+    console.log('⚠️ Running in Vercel build environment. Skipping Puppeteer prerendering to avoid Chrome dependency issues.');
+    process.exit(0);
+  }
   console.log('🚀 Starting Custom Prerender process...');
 
   // 1. Start a local server to serve the dist folder
