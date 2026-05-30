@@ -140,7 +140,7 @@ const translations = {
         sp2_n: "Orada Sa Žara", sp2_d: "Svježa orada sa žara poslužena s blitvom na dalmatinski.",
         sp3_n: "Losos Sa Žara", sp3_d: "File lososa na žaru poslužen uz aromatičnu zelenu rižu od graška.",
         sp4_n: "Zapečeni Zabatak", sp4_d: "Zapečeni otkošteni pileći zabatak uz jedinstvenu ljubičastu rižu.",
-        sp5_n: "BBQ Rebarca", sp5_d: "Slasna svinjska rebarca u domaćem BBQ umaku uz krumpiriće.",
+        sp5_n: "Riblja Plata Za Dvoje", sp5_d: "Orada sa žara, lignje sa žara, lignje frigane, škampi sa žara uz blitvu i krumpir salatu.",
         m1_n: "Pizza BBQ", m1_d: "Sir, piletina s roštilja, Worcestershire umak, kečap, kapula, masline",
         m2_n: "Pizza Dimljena Piletina", m2_d: "Sir, dimljena piletina, vrhnje, zelena salata, tartar umak, masline",
         m3_n: "Pizzeria EX", m3_d: "Pelati, sir, šunka, feta sir, artičoke, gljive, origano",
@@ -267,7 +267,7 @@ const translations = {
         sp2_n: "Grilled Sea Bream", sp2_d: "Fresh grilled sea bream served with Swiss chard and potatoes.",
         sp3_n: "Grilled Salmon", sp3_d: "Grilled salmon fillet served with aromatic green pea rice.",
         sp4_n: "Roasted Chicken Thigh", sp4_d: "Roasted boneless chicken thigh served with unique purple rice.",
-        sp5_n: "BBQ Ribs", sp5_d: "Delicious pork ribs in homemade BBQ sauce with fries.",
+        sp5_n: "Fish Platter for Two", sp5_d: "Grilled sea bream, grilled squid, fried squid, grilled prawns with Swiss chard and potato salad.",
         m1_n: "BBQ Pizza", m1_d: "Cheese, grilled chicken, Worcestershire sauce, ketchup, onion, olives",
         m2_n: "Smoked Chicken Pizza", m2_d: "Cheese, smoked chicken, cream, lettuce, tartar sauce, olives",
         m3_n: "Pizzeria EX", m3_d: "Tomato sauce, cheese, ham, feta cheese, artichokes, mushrooms, oregano",
@@ -1228,11 +1228,11 @@ const MenuPage = () => {
       icon: <Star className="w-6 h-6" />,
       category: t('menuPage.cat0'),
       items: [
-        { name: t('menuPage.items.sp1_n'), desc: t('menuPage.items.sp1_d'), price: "19,50 €", badge: "Premium" },
-        { name: t('menuPage.items.sp2_n'), desc: t('menuPage.items.sp2_d'), price: "17,50 €" },
-        { name: t('menuPage.items.sp3_n'), desc: t('menuPage.items.sp3_d'), price: "18,20 €", badge: "Special Choice" },
-        { name: t('menuPage.items.sp4_n'), desc: t('menuPage.items.sp4_d'), price: "13,20 €" },
-        { name: t('menuPage.items.sp5_n'), desc: t('menuPage.items.sp5_d'), price: "15,20 €", badge: "Signature" }
+        { name: t('menuPage.items.sp1_n'), desc: t('menuPage.items.sp1_d'), price: "21,50 €", badge: "Premium" },
+        { name: t('menuPage.items.sp2_n'), desc: t('menuPage.items.sp2_d'), price: "22,00 €" },
+        { name: t('menuPage.items.sp3_n'), desc: t('menuPage.items.sp3_d'), price: "19,80 €", badge: "Special Choice" },
+        { name: t('menuPage.items.sp4_n'), desc: t('menuPage.items.sp4_d'), price: "14,50 €" },
+        { name: t('menuPage.items.sp5_n'), desc: t('menuPage.items.sp5_d'), price: "48,00 €", badge: "Signature" }
       ]
     },
     {
@@ -1250,21 +1250,21 @@ const MenuPage = () => {
       icon: <Flame className="w-6 h-6" />,
       category: t('menuPage.cat2'),
       items: [
-        { name: t('menuPage.items.g1_n'), desc: t('menuPage.items.g1_d'), price: "13,70 €" },
-        { name: t('menuPage.items.g2_n'), desc: t('menuPage.items.g2_d'), price: "14,70 €" },
-        { name: t('menuPage.items.g3_n'), desc: t('menuPage.items.g3_d'), price: "15,10 €", badge: t('menuPage.items.badge_pop') },
-        { name: t('menuPage.items.g4_n'), desc: t('menuPage.items.g4_d'), price: "15,30 €" },
-        { name: t('menuPage.items.g5_n'), desc: t('menuPage.items.g5_d'), price: "34,80 €", badge: t('menuPage.items.badge_share') }
+        { name: t('menuPage.items.g1_n'), desc: t('menuPage.items.g1_d'), price: "15,00 €" },
+        { name: t('menuPage.items.g2_n'), desc: t('menuPage.items.g2_d'), price: "16,20 €" },
+        { name: t('menuPage.items.g3_n'), desc: t('menuPage.items.g3_d'), price: "16,60 €", badge: t('menuPage.items.badge_pop') },
+        { name: t('menuPage.items.g4_n'), desc: t('menuPage.items.g4_d'), price: "16,90 €" },
+        { name: t('menuPage.items.g5_n'), desc: t('menuPage.items.g5_d'), price: "38,20 €", badge: t('menuPage.items.badge_share') }
       ]
     },
     {
       icon: <Coffee className="w-6 h-6" />,
       category: t('menuPage.cat3'),
       items: [
-        { name: t('menuPage.items.b1_n'), desc: t('menuPage.items.b1_d'), price: "6,90 €" },
-        { name: t('menuPage.items.b2_n'), desc: t('menuPage.items.b2_d'), price: "7,50 €" },
-        { name: t('menuPage.items.b5_n'), desc: t('menuPage.items.b5_d'), price: "7,30 €", badge: "New" },
-        { name: t('menuPage.items.b3_n'), desc: t('menuPage.items.b3_d'), price: "7,50 €" },
+        { name: t('menuPage.items.b1_n'), desc: t('menuPage.items.b1_d'), price: "7,40 €" },
+        { name: t('menuPage.items.b2_n'), desc: t('menuPage.items.b2_d'), price: "8,00 €" },
+        { name: t('menuPage.items.b5_n'), desc: t('menuPage.items.b5_d'), price: "7,80 €", badge: "New" },
+        { name: t('menuPage.items.b3_n'), desc: t('menuPage.items.b3_d'), price: "8,00 €" },
         { name: t('menuPage.items.b4_n'), desc: t('menuPage.items.b4_d'), price: "7,30 €" }
       ]
     },
@@ -1272,12 +1272,12 @@ const MenuPage = () => {
       icon: <Utensils className="w-6 h-6" />,
       category: t('menuPage.cat4'),
       items: [
-        { name: t('menuPage.items.s1_n'), desc: t('menuPage.items.s1_d'), price: "16,70 €" },
-        { name: t('menuPage.items.s2_n'), desc: t('menuPage.items.s2_d'), price: "16,70 €" },
-        { name: t('menuPage.items.s3_n'), desc: t('menuPage.items.s3_d'), price: "18,20 €", badge: "Premium" },
-        { name: t('menuPage.items.s4_n'), desc: t('menuPage.items.s4_d'), price: "15,20 €" },
-        { name: t('menuPage.items.s5_n'), desc: t('menuPage.items.s5_d'), price: "14,40 €" },
-        { name: t('menuPage.items.s6_n'), desc: t('menuPage.items.s6_d'), price: "16,10 €", badge: "Extra" }
+        { name: t('menuPage.items.s1_n'), desc: t('menuPage.items.s1_d'), price: "18,00 €" },
+        { name: t('menuPage.items.s2_n'), desc: t('menuPage.items.s2_d'), price: "18,00 €" },
+        { name: t('menuPage.items.s3_n'), desc: t('menuPage.items.s3_d'), price: "19,90 €", badge: "Premium" },
+        { name: t('menuPage.items.s4_n'), desc: t('menuPage.items.s4_d'), price: "15,80 €" },
+        { name: t('menuPage.items.s5_n'), desc: t('menuPage.items.s5_d'), price: "15,90 €" },
+        { name: t('menuPage.items.s6_n'), desc: t('menuPage.items.s6_d'), price: "17,70 €", badge: "Extra" }
       ]
     }
   ];
