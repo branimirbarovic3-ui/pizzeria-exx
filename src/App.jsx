@@ -45,7 +45,7 @@ import { twMerge } from 'tailwind-merge';
 const translations = {
   hr: {
     nav: { home: 'Početna', menu: 'Jelovnik', domjenak: 'Domjenak', contact: 'Kontakt', book: 'Rezerviraj Stol' },
-    hero: { line1: 'Kvarnerski gušti i', line2: 'Tradicija.', menuBtn: 'Pogledajte Jelovnik', bookBtn: 'Rezervirajte Stol' },
+    hero: { line1: 'Kvarnerski gušti i', line2: 'Tradicija.', menuBtn: 'Pogledajte Jelovnik', bookBtn: 'Rezervirajte Stol', holidayPill: '🎄 Prosinačke večeri uz tamburaše u EX-u — Pogledajte ponudu i menije' },
     details: { title: 'Naši Specijaliteti', subtitle: 'Okusi Tradicije' },
     why: {
       title: 'Standard kojem težimo',
@@ -111,8 +111,11 @@ const translations = {
         phone: 'Broj telefona',
         type: 'Vrsta upita (odaberite)',
         opt1: 'Rezervacija Stola',
+        optDomjenak: '🎄 Božićni Domjenak / Prosinačke večeri',
         opt2: 'Organizacija Proslave / Domjenka',
         opt3: 'Ostalo / Općenito',
+        dateSelect: 'Odaberite vikend za Prosinačke večeri',
+        guestsPlaceholder: 'Broj osoba (npr. 8)',
         msg: 'Vaša poruka...',
         btn: 'Pošalji Upit'
       },
@@ -196,7 +199,7 @@ const translations = {
   },
   en: {
     nav: { home: 'Home', menu: 'Menu', domjenak: 'Holiday Events', contact: 'Contact', book: 'Book a Table' },
-    hero: { line1: 'Kvarner Tastes and', line2: 'Tradition.', menuBtn: 'View Menu', bookBtn: 'Book a Table' },
+    hero: { line1: 'Kvarner Tastes and', line2: 'Tradition.', menuBtn: 'View Menu', bookBtn: 'Book a Table', holidayPill: '🎄 December Evenings with Live Music — View Menus & Dates' },
     details: { title: 'Our Specialties', subtitle: 'Traditional Tastes' },
     why: {
       title: 'The standard we strive for',
@@ -262,8 +265,11 @@ const translations = {
         phone: 'Phone number',
         type: 'Type of inquiry (select)',
         opt1: 'Table Reservation',
+        optDomjenak: '🎄 Christmas Party / December Evenings',
         opt2: 'Event / Celebration Organization',
         opt3: 'Other / General',
+        dateSelect: 'Select weekend for December Evenings',
+        guestsPlaceholder: 'Number of guests (e.g. 8)',
         msg: 'Your message...',
         btn: 'Send Inquiry'
       },
@@ -589,7 +595,16 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-5xl w-full -translate-y-20 md:translate-y-0 md:max-w-4xl">
+      <div className="relative z-10 max-w-5xl w-full -translate-y-12 md:translate-y-0 md:max-w-4xl">
+        <div className="mb-6 relative z-20 flex justify-center md:justify-start">
+          <Link
+            to="/domjenak"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-black/70 border border-champagne/50 text-champagne text-[11px] md:text-xs font-mono uppercase tracking-widest hover:bg-champagne hover:text-obsidian transition-all duration-300 backdrop-blur-md shadow-xl shadow-champagne/10"
+          >
+            <span>{t('hero.holidayPill')}</span>
+            <ArrowRight size={14} className="shrink-0" />
+          </Link>
+        </div>
         <div ref={textRef1} className="text-ivory font-bold text-2xl md:text-5xl uppercase tracking-tighter mb-2 md:mb-4 relative z-20">
           {t('hero.line1')}
         </div>
@@ -986,7 +1001,20 @@ const ProtocolSection = () => {
 
 const ContactSection = () => {
   const { t } = React.useContext(LanguageContext);
+  const location = useLocation();
   const [formStatus, setFormStatus] = useState('idle');
+  const [inquiryType, setInquiryType] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('tip') === 'domjenak' ? 'domjenak' : '';
+  });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('tip') === 'domjenak') {
+      setInquiryType('domjenak');
+    }
+  }, [location.search]);
+
   return (
     <section id="kontakt" className="py-24 px-4 md:px-8 bg-black text-ivory relative overflow-hidden">
 
@@ -1101,12 +1129,44 @@ const ContactSection = () => {
                   <input type="tel" name="Phone" placeholder={t('contact.form.phone')} required className="w-full bg-obsidian border border-ivory/20 rounded-xl px-6 py-4 text-ivory placeholder:text-ivory/60 focus:outline-none focus:border-champagne transition-colors" />
                 </div>
                 <div className="flex flex-col gap-6">
-                  <select name="Inquiry Type" className="w-full bg-obsidian border border-ivory/10 rounded-xl px-6 py-4 text-ivory focus:outline-none focus:border-champagne transition-colors appearance-none" required>
-                    <option value="" disabled selected className="text-ivory/30">{t('contact.form.type')}</option>
+                  <select
+                    name="Inquiry Type"
+                    value={inquiryType}
+                    onChange={(e) => setInquiryType(e.target.value)}
+                    className="w-full bg-obsidian border border-ivory/10 rounded-xl px-6 py-4 text-ivory focus:outline-none focus:border-champagne transition-colors appearance-none"
+                    required
+                  >
+                    <option value="" disabled className="text-ivory/30">{t('contact.form.type')}</option>
+                    <option value="domjenak">{t('contact.form.optDomjenak')}</option>
                     <option value="stol">{t('contact.form.opt1')}</option>
                     <option value="slavlje">{t('contact.form.opt2')}</option>
                     <option value="ostalo">{t('contact.form.opt3')}</option>
                   </select>
+
+                  {inquiryType === 'domjenak' && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-in fade-in duration-300">
+                      <select
+                        name="Odabrani Datum Domjenka"
+                        defaultValue=""
+                        className="w-full bg-obsidian border border-champagne/40 rounded-xl px-6 py-4 text-champagne focus:outline-none focus:border-champagne transition-colors appearance-none"
+                        required
+                      >
+                        <option value="" disabled className="text-ivory/30">{t('contact.form.dateSelect')}</option>
+                        <option value="4. i 5. prosinca">{t('domjenakPage.d1')}</option>
+                        <option value="11. i 12. prosinca">{t('domjenakPage.d2')}</option>
+                        <option value="18. i 19. prosinca">{t('domjenakPage.d3')}</option>
+                      </select>
+                      <input
+                        type="number"
+                        min="1"
+                        name="Broj Osoba"
+                        placeholder={t('contact.form.guestsPlaceholder')}
+                        required
+                        className="w-full bg-obsidian border border-champagne/40 rounded-xl px-6 py-4 text-ivory placeholder:text-ivory/60 focus:outline-none focus:border-champagne transition-colors"
+                      />
+                    </div>
+                  )}
+
                   <textarea name="Message" placeholder={t('contact.form.msg')} rows="4" required className="w-full bg-obsidian border border-ivory/10 rounded-xl px-6 py-4 text-ivory placeholder:text-ivory/30 focus:outline-none focus:border-champagne transition-colors resize-none"></textarea>
                 </div>
                 <button 
@@ -1631,7 +1691,7 @@ const DomjenakPage = () => {
               Restaurant EX, Miroslava Krleže 11, Rijeka
             </span>
             <Link
-              to="/kontakt"
+              to="/kontakt?tip=domjenak"
               className="text-champagne hover:text-white underline underline-offset-4 transition-colors font-bold"
             >
               {t('domjenakPage.bookFormBtn')} →
