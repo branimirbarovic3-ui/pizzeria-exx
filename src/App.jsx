@@ -33,7 +33,10 @@ import {
   Bike,
   ShoppingBag,
   Info,
-  Check
+  Check,
+  Sparkles,
+  Music,
+  Wine
 } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -41,7 +44,7 @@ import { twMerge } from 'tailwind-merge';
 // --- Translations ---
 const translations = {
   hr: {
-    nav: { home: 'Početna', menu: 'Jelovnik', contact: 'Kontakt', book: 'Rezerviraj Stol' },
+    nav: { home: 'Početna', menu: 'Jelovnik', domjenak: 'Domjenak', contact: 'Kontakt', book: 'Rezerviraj Stol' },
     hero: { line1: 'Kvarnerski gušti i', line2: 'Tradicija.', menuBtn: 'Pogledajte Jelovnik', bookBtn: 'Rezervirajte Stol' },
     details: { title: 'Naši Specijaliteti', subtitle: 'Okusi Tradicije' },
     why: {
@@ -166,10 +169,33 @@ const translations = {
         badge_pop: "Popularno",
         badge_share: "Za dijeliti"
       }
+    },
+    domjenakPage: {
+      badge: '🎄 POSEBNA BLAGDANSKA PONUDA ✨',
+      title1: 'Prosinačke Večeri',
+      title2: 'u EX-u!',
+      subtitle: 'Dobra hrana, tamburaši i društvo koje se pamti! 🥂🎶',
+      p1: 'Prosinac je vrijeme kada se okupljamo, nazdravljamo, uživamo u dobroj hrani i stvaramo najljepše uspomene! I ove godine u Restaurantu EX pripremamo posebne blagdanske večeri uz tamburaše uživo i dva pažljivo osmišljena menija. 🍽️',
+      p2: 'Bilo da planirate božićni domjenak sa svojim kolegama, okupljanje s prijateljima ili jednostavno želite uživati u večeri ispunjenoj pjesmom i odličnom atmosferom – kod nas Vas čeka sve za nezaboravan provod! ❤️',
+      datesTitle: 'Rezervirajte svoj datum',
+      datesSub: 'Tamburaši uživo svakog navedenog vikenda',
+      d1: '4. i 5. prosinca',
+      d2: '11. i 12. prosinca',
+      d3: '18. i 19. prosinca',
+      liveMusic: 'Tamburaši uživo',
+      menusTitle: 'Svečani Blagdanski Meniji',
+      menusSub: 'Dva pažljivo osmišljena menija u 5 slijedova (kliknite na sliku za uvećani prikaz)',
+      meatTitle: 'Mesni Meni',
+      fishTitle: 'Riblji Meni',
+      priceLabel: '45 € po osobi',
+      zoomHint: 'Kliknite za veći prikaz',
+      resTitle: 'Rezervacije i Informacije',
+      resOutro: '🥂 Mi pripremamo okuse i atmosferu, a vi ponesite dobro raspoloženje! Veselimo se druženju s vama!',
+      bookFormBtn: 'Pošalji Online Upit'
     }
   },
   en: {
-    nav: { home: 'Home', menu: 'Menu', contact: 'Contact', book: 'Book a Table' },
+    nav: { home: 'Home', menu: 'Menu', domjenak: 'Holiday Events', contact: 'Contact', book: 'Book a Table' },
     hero: { line1: 'Kvarner Tastes and', line2: 'Tradition.', menuBtn: 'View Menu', bookBtn: 'Book a Table' },
     details: { title: 'Our Specialties', subtitle: 'Traditional Tastes' },
     why: {
@@ -294,6 +320,29 @@ const translations = {
         badge_pop: "Popular",
         badge_share: "To share"
       }
+    },
+    domjenakPage: {
+      badge: '🎄 SPECIAL HOLIDAY OFFER ✨',
+      title1: 'December Evenings',
+      title2: 'at EX!',
+      subtitle: 'Great food, live tamburitza music, and unforgettable company! 🥂🎶',
+      p1: 'December is the time to gather, toast, enjoy great food, and create the most wonderful memories! Once again at Restaurant EX, we are preparing special holiday evenings with live tamburitza music and two carefully crafted menus. 🍽️',
+      p2: 'Whether you are planning a Christmas party with colleagues, a gathering with friends, or simply want to enjoy an evening filled with song and a great atmosphere – everything awaits you here for an unforgettable time! ❤️',
+      datesTitle: 'Reserve Your Date',
+      datesSub: 'Live tamburitza music every listed weekend',
+      d1: 'December 4 & 5',
+      d2: 'December 11 & 12',
+      d3: 'December 18 & 19',
+      liveMusic: 'Live Tamburitza Music',
+      menusTitle: 'Festive Holiday Menus',
+      menusSub: 'Two carefully crafted 5-course menus (click on the menu image to enlarge)',
+      meatTitle: 'Meat Menu',
+      fishTitle: 'Fish Menu',
+      priceLabel: '45 € per person',
+      zoomHint: 'Click to enlarge',
+      resTitle: 'Reservations & Info',
+      resOutro: '🥂 We prepare the flavors and atmosphere, you bring the good mood! We look forward to celebrating with you!',
+      bookFormBtn: 'Send Online Inquiry'
     }
   }
 };
@@ -364,6 +413,7 @@ const Navbar = () => {
   const navLinks = [
     { name: t('nav.home'), path: '/' },
     { name: t('nav.menu'), path: '/jelovnik' },
+    { name: t('nav.domjenak'), path: '/domjenak', special: true },
     { name: t('nav.contact'), path: '/kontakt' },
     { 
       name: t('footer.findUs'), 
@@ -379,7 +429,7 @@ const Navbar = () => {
         className={cn(
           "fixed top-6 left-1/2 -translate-x-1/2 z-[100] transition-all duration-500 ease-out pill-nav",
           "flex items-center justify-between px-6 py-3 rounded-full border border-obsidian/10",
-          "w-[90%] max-w-4xl",
+          "w-[90%] max-w-5xl",
           isScrolled
             ? "bg-ivory/60 backdrop-blur-xl shadow-2xl"
             : "bg-transparent border-transparent"
@@ -395,16 +445,23 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
           {navLinks.filter(l => !l.external).map((link) => (
             <Link
               key={link.name}
               to={link.path}
               className={cn(
-                "text-sm font-medium uppercase tracking-widest transition-colors duration-300",
-                isScrolled ? "text-obsidian" : "text-ivory/80 hover:text-ivory"
+                "text-sm font-medium uppercase tracking-widest transition-colors duration-300 flex items-center gap-1.5",
+                link.special
+                  ? isScrolled
+                    ? "text-obsidian font-black bg-champagne/40 px-3 py-1 rounded-full border border-obsidian/20"
+                    : "text-champagne font-black bg-champagne/10 px-3 py-1 rounded-full border border-champagne/30 hover:bg-champagne/20"
+                  : isScrolled
+                    ? "text-obsidian"
+                    : "text-ivory/80 hover:text-ivory"
               )}
             >
+              {link.special && <Sparkles size={14} className="text-champagne fill-champagne shrink-0" />}
               {link.name}
             </Link>
           ))}
@@ -1411,6 +1468,206 @@ const MenuPage = () => {
   );
 };
 
+const DomjenakPage = () => {
+  const { t } = React.useContext(LanguageContext);
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  const dates = [
+    t('domjenakPage.d1'),
+    t('domjenakPage.d2'),
+    t('domjenakPage.d3')
+  ];
+
+  const menus = [
+    {
+      title: t('domjenakPage.meatTitle'),
+      price: t('domjenakPage.priceLabel'),
+      img: '/assets/menimesni.jpg'
+    },
+    {
+      title: t('domjenakPage.fishTitle'),
+      price: t('domjenakPage.priceLabel'),
+      img: '/assets/meniriblji.jpg'
+    }
+  ];
+
+  return (
+    <main className="pt-40 pb-24 bg-black min-h-screen text-ivory relative selection:bg-champagne selection:text-black overflow-hidden">
+      {/* Subtle Festive Glow Background */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-champagne/10 blur-[140px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        {/* Hero Header */}
+        <div className="text-center mb-16 md:mb-24 max-w-4xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-champagne/10 border border-champagne/30 text-champagne text-xs md:text-sm font-mono uppercase tracking-widest mb-8 animate-pulse">
+            {t('domjenakPage.badge')}
+          </div>
+          <h1 className="text-4xl sm:text-6xl md:text-8xl font-black uppercase tracking-tighter text-white leading-[0.95] mb-6">
+            {t('domjenakPage.title1')} <span className="text-champagne font-serif italic font-normal">{t('domjenakPage.title2')}</span>
+          </h1>
+          <p className="text-xl md:text-3xl font-serif italic text-champagne mb-10">
+            {t('domjenakPage.subtitle')}
+          </p>
+          <div className="space-y-6 text-ivory/80 text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-sans">
+            <p>{t('domjenakPage.p1')}</p>
+            <p>{t('domjenakPage.p2')}</p>
+          </div>
+        </div>
+
+        {/* Dates Section */}
+        <div className="mb-24 md:mb-32">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-3 text-champagne mb-3">
+              <Calendar className="w-6 h-6" />
+              <span className="font-mono text-xs uppercase tracking-[0.3em]">{t('domjenakPage.liveMusic')}</span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white">
+              {t('domjenakPage.datesTitle')}
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
+            {dates.map((dateStr, idx) => (
+              <div
+                key={idx}
+                className="relative p-8 md:p-10 rounded-3xl bg-white/[0.04] border border-champagne/30 hover:border-champagne transition-all duration-500 text-center group overflow-hidden shadow-2xl"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-champagne/10 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-champagne/20 transition-all" />
+                <div className="w-14 h-14 rounded-2xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+                  <Sparkles className="w-7 h-7" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-3">
+                  {dateStr}
+                </h3>
+                <div className="inline-flex items-center gap-2 text-champagne font-mono text-xs uppercase tracking-widest bg-champagne/10 px-4 py-1.5 rounded-full">
+                  <Music className="w-3.5 h-3.5" />
+                  {t('domjenakPage.liveMusic')}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Menus Section */}
+        <div className="mb-24 md:mb-32 pt-16 border-t border-white/10">
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center gap-2 text-champagne mb-3">
+              <Utensils className="w-5 h-5" />
+              <span className="font-mono text-xs uppercase tracking-[0.3em]">RESTAURANT EX</span>
+            </div>
+            <h2 className="text-3xl md:text-6xl font-black uppercase tracking-tighter text-white mb-4">
+              {t('domjenakPage.menusTitle')}
+            </h2>
+            <p className="text-ivory/60 font-mono text-xs md:text-sm uppercase tracking-widest">
+              {t('domjenakPage.menusSub')}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 max-w-5xl mx-auto">
+            {menus.map((m, idx) => (
+              <div
+                key={idx}
+                onClick={() => setSelectedImg(m.img)}
+                className="group cursor-pointer bg-white/[0.03] border border-white/10 hover:border-champagne/50 rounded-[2rem] p-4 md:p-6 transition-all duration-500 shadow-2xl flex flex-col"
+              >
+                <div className="flex items-center justify-between mb-4 px-2">
+                  <h3 className="text-xl md:text-2xl font-black uppercase tracking-wider text-white group-hover:text-champagne transition-colors">
+                    {m.title}
+                  </h3>
+                  <span className="px-4 py-1.5 rounded-full bg-champagne text-obsidian font-black text-xs md:text-sm uppercase tracking-widest">
+                    {m.price}
+                  </span>
+                </div>
+
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/5] bg-obsidian">
+                  <img
+                    src={m.img}
+                    alt={m.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500 flex items-end justify-center p-6">
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 px-5 py-2.5 rounded-full bg-black/80 backdrop-blur-md text-champagne border border-champagne/40 font-mono text-xs uppercase tracking-widest">
+                      🔍 {t('domjenakPage.zoomHint')}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Reservations CTA Box */}
+        <div className="max-w-4xl mx-auto bg-gradient-to-b from-white/[0.06] to-white/[0.02] border border-champagne/40 rounded-[2.5rem] p-8 md:p-16 text-center relative overflow-hidden shadow-2xl">
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-96 h-96 bg-champagne/10 blur-3xl rounded-full pointer-events-none" />
+
+          <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter text-white mb-4 relative z-10">
+            📞 {t('domjenakPage.resTitle')}
+          </h2>
+          <p className="text-ivory/80 font-serif italic text-lg md:text-2xl max-w-2xl mx-auto mb-10 relative z-10">
+            {t('domjenakPage.resOutro')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-10 relative z-10">
+            <a
+              href="tel:+385953942888"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 bg-champagne text-obsidian rounded-full font-black uppercase tracking-widest text-sm md:text-base hover:scale-105 transition-transform duration-300 shadow-xl shadow-champagne/20"
+            >
+              <Phone className="w-5 h-5" />
+              095 394 2888
+            </a>
+            <a
+              href="tel:+38551624471"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-5 bg-white/10 border border-champagne/40 text-ivory hover:bg-champagne hover:text-obsidian rounded-full font-black uppercase tracking-widest text-sm md:text-base transition-all duration-300"
+            >
+              <Phone className="w-5 h-5" />
+              051 624 471
+            </a>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6 border-t border-white/10 text-ivory/60 text-xs md:text-sm font-mono uppercase tracking-widest relative z-10">
+            <span className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-champagne" />
+              Restaurant EX, Miroslava Krleže 11, Rijeka
+            </span>
+            <Link
+              to="/kontakt"
+              className="text-champagne hover:text-white underline underline-offset-4 transition-colors font-bold"
+            >
+              {t('domjenakPage.bookFormBtn')} →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Lightbox Modal for Enlarged Menu View */}
+      {selectedImg && (
+        <div
+          onClick={() => setSelectedImg(null)}
+          className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-xl flex items-center justify-center p-4 md:p-8 cursor-zoom-out animate-in fade-in duration-300"
+        >
+          <button
+            onClick={() => setSelectedImg(null)}
+            className="fixed top-6 right-6 w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-champagne hover:text-black transition-colors z-[210]"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <img
+            src={selectedImg}
+            alt="Menu Fullscreen"
+            className="max-h-[90vh] max-w-[95vw] object-contain rounded-2xl shadow-2xl border border-champagne/30"
+          />
+        </div>
+      )}
+
+      <div className="mt-24">
+        <MarqueeSection />
+        <BigStatement />
+      </div>
+    </main>
+  );
+};
+
 const ContactPage = () => (
   <main className="pt-40 bg-black">
     <ContactSection />
@@ -1448,6 +1705,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/kontakt" element={<ContactPage />} />
           <Route path="/jelovnik" element={<MenuPage />} />
+          <Route path="/domjenak" element={<DomjenakPage />} />
         </Routes>
         <Footer />
         <Analytics />

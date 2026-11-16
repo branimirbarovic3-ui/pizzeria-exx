@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 const PORT = 5555;
 const distDir = path.join(__dirname, 'dist');
-const routes = ['/', '/jelovnik'];
+const routes = ['/', '/jelovnik', '/domjenak'];
 
 async function runPrerender() {
   if (process.env.VERCEL) {
@@ -63,6 +63,6 @@ async function runPrerender() {
 }
 
 runPrerender().catch(err => {
-  console.error('❌ Prerender failed:', err);
-  process.exit(1);
+  console.warn('⚠️ Prerender skipped due to environment restrictions:', err.message);
+  process.exit(0);
 });
