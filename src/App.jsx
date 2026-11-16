@@ -1544,12 +1544,14 @@ const DomjenakPage = () => {
     {
       title: t('domjenakPage.meatTitle'),
       price: t('domjenakPage.priceLabel'),
-      img: '/assets/menimesni.jpg'
+      img: '/assets/menimesni.jpg',
+      alt: 'Božićni domjenak Rijeka 2026 2027 - Mesni meni 45€ Restaurant EX (Tatarski biftek, Rižoto od vrganja, Svinjski lungić)'
     },
     {
       title: t('domjenakPage.fishTitle'),
       price: t('domjenakPage.priceLabel'),
-      img: '/assets/meniriblji.jpg'
+      img: '/assets/meniriblji.jpg',
+      alt: 'Božićni domjenak Rijeka 2026 2027 - Riblji meni 45€ Restaurant EX (Hrskava tuna, Bisque od škampi, File brancina i hobotnica ispod peke)'
     }
   ];
 
@@ -1644,7 +1646,7 @@ const DomjenakPage = () => {
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/5] bg-obsidian">
                   <img
                     src={m.img}
-                    alt={m.title}
+                    alt={m.alt || m.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
@@ -1700,6 +1702,12 @@ const DomjenakPage = () => {
             </Link>
           </div>
         </div>
+        {/* Subtle SEO Footer Block for Google Search */}
+        <div className="mt-16 text-center max-w-3xl mx-auto">
+          <p className="text-[11px] font-mono text-ivory/30 leading-relaxed">
+            Organizacija božićnih i novogodišnjih domjenaka u Rijeci (2026 / 2027) • Poslovni domjenci, svečane večere i proslave uz tamburaše uživo • Restaurant & Pizzeria EX Rijeka (Srdoči)
+          </p>
+        </div>
       </div>
 
       {/* Lightbox Modal for Enlarged Menu View */}
@@ -1742,6 +1750,30 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    const seoMap = {
+      '/': {
+        title: 'Pizzeria & Restaurant EX Rijeka | Tradicija, Peka i Božićni Domjenci',
+        desc: 'Autentični okusi Rijeke od 1988. Pizzeria & Restoran EX na Srdočima nudi vrhunske pizze, teletinu pod pekom, svečane božićne domjenke 2026/2027 i prosinačke večeri uz tamburaše.'
+      },
+      '/domjenak': {
+        title: 'Božićni Domjenak Rijeka 2026 / 2027 | Prosinačke Večeri uz Tamburaše — Restaurant EX',
+        desc: 'Tražite restoran za božićni ili poslovni domjenak u Rijeci 2026/2027? Uživajte u prosinačkim večerima uz tamburaše uživo i svečanim menijima od 5 slijedova (45€) u Restaurantu EX!'
+      },
+      '/jelovnik': {
+        title: 'Jelovnik i Cjenik | Pizzeria & Restaurant EX Rijeka (Srdoči)',
+        desc: 'Prelistajte naš cjelokupni jelovnik: vrhunske pizze, teletina pod pekom, riblja i mesna plata, lignje, tjestenine i specijaliteti s roštilja u Rijeci.'
+      },
+      '/kontakt': {
+        title: 'Rezervacije Stola i Organizacija Domjenaka | Pizzeria & Restaurant EX Rijeka',
+        desc: 'Rezervirajte svoj stol ili dogovorite božićni domjenak i proslavu u Restaurantu EX Rijeka (Miroslava Krleže 11, Srdoči). Telefon: 095 394 2888 / 051 624 471.'
+      }
+    };
+
+    const currentSeo = seoMap[pathname] || seoMap['/'];
+    document.title = currentSeo.title;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', currentSeo.desc);
   }, [pathname]);
   return null;
 };
