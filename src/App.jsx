@@ -93,7 +93,7 @@ const translations = {
     },
     stack: [
       { num: "01", title: "Bogata Mesna Plata", desc: "Raskošna selekcija pilećih rolica, pljeskavica, ražnjića, ćevapa i lungića, poslužena s domaćim pekarskim krumpirom i grilanim povrćem." },
-      { num: "02", title: "Legendarna BBQ Rebarca", desc: "Savršenstvo pečenja uz posebnu marinadu i meso koje se topi u ustima." },
+      { num: "02", title: "Teletina Pod Pekom", desc: "Vrhunska teletina polagano pečena s krumpirom pod tradicionalnom pekom koja se topi u ustima." },
       { num: "03", title: "Pfeffer Steak", desc: "Juneći ramstek u kremastom umaku od papra, poslužen sa krumpirićima." }
     ],
     contact: {
@@ -141,6 +141,7 @@ const translations = {
       full: 'Cjelokupni Jelovnik',
       fullDesc: 'Prelistajte našu potpunu ponudu u PDF izdanju.',
       btn: 'Preuzmi PDF',
+      callOrder: 'Naruči / Rezerviraj: 051 624 471',
       loading: 'Očitavanje cjelokupnog dokumenta...',
       updatedNote: 'Ažurirano: Svibanj 2026.',
       items: {
@@ -247,7 +248,7 @@ const translations = {
     },
     stack: [
       { num: "01", title: "Rich Meat Platter", desc: "A lavish selection of chicken rolls, patties, skewers, ćevapi, and pork tenderloin, served with traditional roasted potatoes and grilled vegetables." },
-      { num: "02", title: "Legendary BBQ Ribs", desc: "Roasting perfection with a special marinade and meat that melts in your mouth." },
+      { num: "02", title: "Veal Under the Bell", desc: "Premium slow-roasted veal with potatoes under the traditional iron bell that melts in your mouth." },
       { num: "03", title: "Pfeffer Steak", desc: "Beef rumpsteak in a creamy pepper sauce, served with fries." }
     ],
     contact: {
@@ -295,6 +296,7 @@ const translations = {
       full: 'Full Menu',
       fullDesc: 'Browse our complete offer in the PDF edition.',
       btn: 'Download PDF',
+      callOrder: 'Order / Book: 051 624 471',
       loading: 'Loading the full document...',
       updatedNote: 'Updated: May 2026.',
       items: {
@@ -630,7 +632,7 @@ const Hero = () => {
 
 const FeatureCard1 = () => {
   // Diagnostic Shuffler: Vertical shuffle logic
-  const [items, setItems] = useState(['Miješano meso', 'Juneći ramstek', 'BBQ Rebarca', 'Losos na žaru']);
+  const [items, setItems] = useState(['Miješano meso', 'Juneći ramstek', 'Teletina pod pekom', 'Losos na žaru']);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -653,7 +655,7 @@ const FeatureCard1 = () => {
         </div>
         <h3 className="text-4xl font-serif italic text-obsidian mb-4">Spektakl Ponude</h3>
         <p className="font-sans text-slate/70 text-sm leading-relaxed md:leading-loose max-w-[250px]">
-          Specijaliteti koji oduzimaju dah: od bogate mesne plate i sočnih BBQ rebaraca, do vrhunskog junećeg ramsteka.
+          Specijaliteti koji oduzimaju dah: od bogate mesne plate i teletine pod pekom, do vrhunskog junećeg ramsteka.
         </p>
       </div>
 
@@ -959,7 +961,7 @@ const ProtocolSection = () => {
     },
     {
       ...t('stack')[1],
-      bg: "/assets/ribs.jpg"
+      bg: "/assets/teletina.jpg"
     },
     {
       ...t('stack')[2],
@@ -1315,9 +1317,25 @@ const Footer = () => {
           </div>
           <div className="pt-8">
             <h4 className="font-black uppercase tracking-tighter text-xs md:text-sm text-ivory mb-6">{t('footer.location')}</h4>
-            <p className="text-ivory/90 font-serif italic text-base md:text-lg leading-relaxed max-w-[280px]">
+            <p className="text-ivory/90 font-serif italic text-base md:text-lg leading-relaxed max-w-[280px] mb-6">
               Miroslava Krleže 11, Rijeka (Srdoči)
             </p>
+            <div className="flex flex-col sm:flex-row items-center md:items-start gap-3">
+              <a
+                href="tel:+38551624471"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-champagne/10 border border-champagne/30 text-champagne hover:bg-champagne hover:text-obsidian transition-all duration-300 font-bold text-xs tracking-widest"
+              >
+                <Phone size={14} />
+                051 624 471
+              </a>
+              <a
+                href="tel:+385953942888"
+                className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/5 border border-white/15 text-ivory/80 hover:border-champagne hover:text-champagne transition-all duration-300 font-bold text-xs tracking-widest"
+              >
+                <Phone size={14} />
+                095 394 2888
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -1430,15 +1448,24 @@ const MenuPage = () => {
               </p>
             </div>
 
-            <a
-              href="/assets/JELOVNIK.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-5 bg-champagne text-black rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 transition-all duration-500 shadow-2xl shadow-champagne/20"
-            >
-              <Download className="w-5 h-5 animate-bounce-slow" />
-              {t('menuPage.btn')}
-            </a>
+            <div className="flex flex-col sm:flex-row items-center gap-4">
+              <a
+                href="/assets/JELOVNIK.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-8 py-5 bg-champagne text-black rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 transition-all duration-500 shadow-2xl shadow-champagne/20"
+              >
+                <Download className="w-5 h-5 animate-bounce-slow" />
+                {t('menuPage.btn')}
+              </a>
+              <a
+                href="tel:+38551624471"
+                className="inline-flex items-center gap-3 px-7 py-5 bg-white/5 border border-champagne/40 text-champagne hover:bg-champagne hover:text-black rounded-full font-black uppercase tracking-widest text-[10px] md:text-xs transition-all duration-500"
+              >
+                <Phone className="w-4 h-4" />
+                {t('menuPage.callOrder')}
+              </a>
+            </div>
           </div>
 
         </div>
