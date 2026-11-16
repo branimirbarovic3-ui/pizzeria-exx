@@ -35,6 +35,7 @@ import {
   Info,
   Check,
   Sparkles,
+  TreePine,
   Music,
   Wine
 } from 'lucide-react';
@@ -467,7 +468,7 @@ const Navbar = () => {
                     : "text-ivory/80 hover:text-ivory"
               )}
             >
-              {link.special && <Sparkles size={14} className="text-champagne fill-champagne shrink-0" />}
+              {link.special && <span className="text-sm leading-none shrink-0">🎄</span>}
               {link.name}
             </Link>
           ))}
@@ -540,8 +541,9 @@ const Navbar = () => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-4xl font-black uppercase tracking-tighter text-ivory hover:text-champagne transition-all duration-300 text-center"
+                className="text-4xl font-black uppercase tracking-tighter text-ivory hover:text-champagne transition-all duration-300 text-center flex items-center gap-3"
               >
+                {link.special && <span>🎄</span>}
                 {link.name}
               </Link>
             )
@@ -1248,8 +1250,8 @@ const BigStatement = () => {
   const { lang, t } = React.useContext(LanguageContext);
   return (
     <section className="py-32 px-4 bg-black text-center flex flex-col items-center justify-center border-t border-ivory/5">
-      <div className="w-16 h-16 mb-12 text-champagne">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z" /></svg>
+      <div className="w-16 h-16 mb-12 flex items-center justify-center text-5xl">
+        🎄
       </div>
       <h2 className="max-w-6xl mx-auto text-5xl md:text-7xl lg:text-[6rem] font-serif italic text-ivory leading-[0.9] tracking-tight">
         {lang === 'hr'
@@ -1593,8 +1595,8 @@ const DomjenakPage = () => {
                 className="relative p-8 md:p-10 rounded-3xl bg-white/[0.04] border border-champagne/30 hover:border-champagne transition-all duration-500 text-center group overflow-hidden shadow-2xl"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-champagne/10 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-champagne/20 transition-all" />
-                <div className="w-14 h-14 rounded-2xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-champagne mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
-                  <Sparkles className="w-7 h-7" />
+                <div className="w-14 h-14 rounded-2xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
+                  🎄
                 </div>
                 <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-3">
                   {dateStr}
