@@ -141,9 +141,11 @@ const translations = {
       full: 'Cjelokupni Jelovnik',
       fullDesc: 'Prelistajte našu potpunu ponudu u PDF izdanju.',
       btn: 'Preuzmi PDF',
+      csvBtn: 'Preuzmi CSV Cjenik',
+      anchorLabel: 'Cijena na 10. 9. 2026.:',
       callOrder: 'Naruči / Rezerviraj: 051 624 471',
       loading: 'Očitavanje cjelokupnog dokumenta...',
-      updatedNote: 'Ažurirano: Svibanj 2026.',
+      updatedNote: 'Ažurirano: Studeni 2026.',
       items: {
         sp1_n: "Teletina Pod Pekom", sp1_d: "Vrhunska teletina polagano pečena s krumpirom pod tradicionalnom pekom.",
         sp2_n: "Orada Sa Žara", sp2_d: "Svježa orada sa žara poslužena s blitvom na dalmatinski.",
@@ -296,9 +298,11 @@ const translations = {
       full: 'Full Menu',
       fullDesc: 'Browse our complete offer in the PDF edition.',
       btn: 'Download PDF',
+      csvBtn: 'Download CSV Price List',
+      anchorLabel: 'Price on 10. 9. 2026.:',
       callOrder: 'Order / Book: 051 624 471',
       loading: 'Loading the full document...',
-      updatedNote: 'Updated: May 2026.',
+      updatedNote: 'Updated: November 2026.',
       items: {
         sp1_n: "Veal Under the Bell", sp1_d: "Traditional slow-roasted veal with potatoes under the iron bell.",
         sp2_n: "Grilled Sea Bream", sp2_d: "Fresh grilled sea bream served with Swiss chard and potatoes.",
@@ -1448,7 +1452,7 @@ const MenuPage = () => {
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center md:justify-end gap-4">
               <a
                 href="/assets/JELOVNIK.pdf"
                 target="_blank"
@@ -1457,6 +1461,14 @@ const MenuPage = () => {
               >
                 <Download className="w-5 h-5 animate-bounce-slow" />
                 {t('menuPage.btn')}
+              </a>
+              <a
+                href="/assets/cjenik.csv"
+                download="Pizzeria_EX_Cjenik.csv"
+                className="inline-flex items-center gap-2.5 px-6 py-5 bg-white/5 border border-white/15 text-ivory/80 hover:border-champagne hover:text-champagne rounded-full font-mono uppercase tracking-widest text-[10px] md:text-xs transition-all duration-500"
+              >
+                <Download className="w-4 h-4" />
+                {t('menuPage.csvBtn')}
               </a>
               <a
                 href="tel:+38551624471"
@@ -1528,7 +1540,12 @@ const MenuPage = () => {
                       )}
                     </h4>
                     <div className="hidden sm:block flex-grow border-b border-dotted border-white/10 mx-4 h-0 self-center opacity-40 group-hover/item:border-champagne/30 transition-colors" />
-                    <span className="text-lg md:text-xl font-black text-champagne whitespace-nowrap sm:ml-auto bg-black/40 px-3 py-1 rounded-lg border border-white/5">{item.price}</span>
+                    <div className="flex flex-col sm:items-end sm:ml-auto">
+                      <span className="text-lg md:text-xl font-black text-champagne whitespace-nowrap bg-black/40 px-3 py-1 rounded-lg border border-white/5">{item.price}</span>
+                      <span className="text-[9px] font-mono text-ivory/40 tracking-wider mt-1">
+                        {t('menuPage.anchorLabel')} {item.price}
+                      </span>
+                    </div>
                   </div>
                   <p className="text-[11px] md:text-sm font-sans tracking-wide text-ivory/40 group-hover/item:text-ivory/70 transition-colors leading-relaxed mt-2 max-w-2xl">
                     {item.desc}
@@ -1665,9 +1682,14 @@ const DomjenakPage = () => {
                   <h3 className="text-xl md:text-2xl font-black uppercase tracking-wider text-white group-hover:text-champagne transition-colors">
                     {m.title}
                   </h3>
-                  <span className="px-4 py-1.5 rounded-full bg-champagne text-obsidian font-black text-xs md:text-sm uppercase tracking-widest">
-                    {m.price}
-                  </span>
+                  <div className="flex flex-col items-end">
+                    <span className="px-4 py-1.5 rounded-full bg-champagne text-obsidian font-black text-xs md:text-sm uppercase tracking-widest">
+                      {m.price}
+                    </span>
+                    <span className="text-[9px] font-mono text-ivory/40 tracking-wider mt-1">
+                      {t('menuPage.anchorLabel')} 45,00 €
+                    </span>
+                  </div>
                 </div>
 
                 <div className="relative overflow-hidden rounded-2xl aspect-[4/5] bg-obsidian">
