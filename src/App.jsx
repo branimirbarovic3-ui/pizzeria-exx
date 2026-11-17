@@ -1015,11 +1015,18 @@ const ContactSection = () => {
     const params = new URLSearchParams(window.location.search);
     return params.get('tip') === 'domjenak' ? 'domjenak' : '';
   });
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('datum') || '';
+  });
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     if (params.get('tip') === 'domjenak') {
       setInquiryType('domjenak');
+    }
+    if (params.get('datum')) {
+      setSelectedDate(params.get('datum'));
     }
   }, [location.search]);
 
@@ -1155,7 +1162,8 @@ const ContactSection = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-in fade-in duration-300">
                       <select
                         name="Odabrani Datum Domjenka"
-                        defaultValue=""
+                        value={selectedDate}
+                        onChange={(e) => setSelectedDate(e.target.value)}
                         className="w-full bg-obsidian border border-champagne/40 rounded-xl px-6 py-4 text-champagne focus:outline-none focus:border-champagne transition-colors appearance-none"
                         required
                       >
@@ -1579,9 +1587,9 @@ const DomjenakPage = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
   const dates = [
-    t('domjenakPage.d1'),
-    t('domjenakPage.d2'),
-    t('domjenakPage.d3')
+    { label: t('domjenakPage.d1'), val: '4. i 5. prosinca' },
+    { label: t('domjenakPage.d2'), val: '11. i 12. prosinca' },
+    { label: t('domjenakPage.d3'), val: '18. i 19. prosinca' }
   ];
 
   const menus = [
@@ -1635,23 +1643,24 @@ const DomjenakPage = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
-            {dates.map((dateStr, idx) => (
-              <div
+            {dates.map((dObj, idx) => (
+              <Link
                 key={idx}
-                className="relative p-8 md:p-10 rounded-3xl bg-white/[0.04] border border-champagne/30 hover:border-champagne transition-all duration-500 text-center group overflow-hidden shadow-2xl"
+                to={`/kontakt?tip=domjenak&datum=${encodeURIComponent(dObj.val)}`}
+                className="relative p-8 md:p-10 rounded-3xl bg-white/[0.04] border border-champagne/30 hover:border-champagne hover:-translate-y-1.5 transition-all duration-500 text-center group overflow-hidden shadow-2xl cursor-pointer block"
               >
                 <div className="absolute top-0 right-0 w-32 h-32 bg-champagne/10 blur-2xl rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-champagne/20 transition-all" />
                 <div className="w-14 h-14 rounded-2xl bg-champagne/10 border border-champagne/30 flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform duration-500">
                   🎄
                 </div>
-                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-3">
-                  {dateStr}
+                <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-white group-hover:text-champagne transition-colors mb-3">
+                  {dObj.label}
                 </h3>
                 <div className="inline-flex items-center gap-2 text-champagne font-mono text-xs uppercase tracking-widest bg-champagne/10 px-4 py-1.5 rounded-full">
                   <Music className="w-3.5 h-3.5" />
                   {t('domjenakPage.liveMusic')}
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
